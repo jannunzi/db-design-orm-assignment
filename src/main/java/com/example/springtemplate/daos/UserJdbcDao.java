@@ -15,14 +15,15 @@ public class UserJdbcDao {
     static final String USERNAME = "YOUR_USERNAME";
     static final String PASSWORD = "YOUR_PASSWORD";
 
-    static Connection connection = null;
-    static PreparedStatement statement = null;
     String CREATE_USER = "INSERT INTO users VALUES (null, ?, ?, ?, ?, ?, null, null)";
     String FIND_ALL_USERS = "SELECT * FROM users";
     String FIND_USER_BY_ID = "SELECT * FROM users WHERE id=?";
     String DELETE_USER = "DELETE FROM users WHERE id=?";
     String UPDATE_USER_PASSWORD = "UPDATE users SET password=? WHERE id=?";
     String UPDATE_USER = "UPDATE users SET first_name=?, last_name=?, username=?, password=? WHERE id=?";
+
+    static Connection connection = null;
+    static PreparedStatement statement = null;
 
     private Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);
