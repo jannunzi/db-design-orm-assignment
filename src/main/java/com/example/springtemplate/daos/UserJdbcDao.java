@@ -48,10 +48,12 @@ public class UserJdbcDao {
     public List<User> findAllUsers() throws ClassNotFoundException, SQLException {
         return null;
     }
+    
     public Integer createUser(User user)
             throws ClassNotFoundException, SQLException {
         return null;
     }
+    
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         System.out.println("JDBC DAO");
     }
