@@ -34,27 +34,32 @@ public class UserJdbcDao {
         connection.close();
     }
 
+    public Integer createUser(User user)
+            throws ClassNotFoundException, SQLException {
+        // do your work here
+        return null;
+    }
+    
+    public List<User> findAllUsers() throws ClassNotFoundException, SQLException {
+        // do your work here
+        return null;
+    }
+    
     public User findUserById(Integer id) throws SQLException, ClassNotFoundException {
+        // do your work here
         return null;
     }
 
     public Integer deleteUser(Integer userId) throws SQLException, ClassNotFoundException {
+        // do your work here
         return null;
     }
 
     public Integer updateUser(Integer userId, User newUser) throws SQLException, ClassNotFoundException {
+        // do your work here
         return null;
     }
 
-    public List<User> findAllUsers() throws ClassNotFoundException, SQLException {
-        return null;
-    }
-    
-    public Integer createUser(User user)
-            throws ClassNotFoundException, SQLException {
-        return null;
-    }
-    
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         System.out.println("JDBC DAO");
     }
