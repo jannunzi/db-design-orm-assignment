@@ -62,5 +62,6 @@ public class UserJdbcDao {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         System.out.println("JDBC DAO");
+        // do your work here
     }
 }
