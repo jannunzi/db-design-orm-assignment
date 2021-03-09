@@ -7,7 +7,7 @@ import java.util.List;
 public class UserOrmDao {
     // do your work here
 
-    public User createUser(User user) {
+    public User createUser() {
         // do your work here
         return null;
     }
@@ -27,7 +27,7 @@ public class UserOrmDao {
         return null;
     }
 
-    public Integer updateUser(Integer userId, User newUser) {
+    public Integer updateUser() {
         // do your work here
         return null;
     }
