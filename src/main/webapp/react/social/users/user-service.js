@@ -1,38 +1,19 @@
 const USERS_URL = "http://localhost:8080/api/users"
 
-export const createUser = (user) =>
-    fetch(USERS_URL, {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {'content-type': 'application/json'}
-    })
-    .then(response => response.json())
+// TODO: create a new user
+export const createUser = (user) => {}
 
-export const findAllUsers = () =>
-    fetch(USERS_URL)
-        .then(response => response.json())
+// TODO: retrieve all users from the server
+export const findAllUsers = () => {}
 
-export const findUserById = (id) =>
-    fetch(`${USERS_URL}/${id}`)
-        .then(response => response.json())
+// TODO: retrieve a single user by their ID
+export const findUserById = (id) => {}
 
-export const updateUser = (id, user) =>
-    fetch(`${USERS_URL}/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify(user),
-        headers: {'content-type': 'application/json'}
-    })
-    .then(response => response.json())
+// TODO: update a user by their ID
+export const updateUser = (id, user) => {}
 
-const deleteUser = (id) =>
-    fetch(`${USERS_URL}/${id}`, {
-        method: "DELETE"
-    })
+// TODO: delete a user by their ID
+export const deleteUser = () => {}
 
-export default {
-    createUser,
-    findAllUsers,
-    findUserById,
-    updateUser,
-    deleteUser
-}
+// TODO: export all functions as the API to this service
+export default {}
