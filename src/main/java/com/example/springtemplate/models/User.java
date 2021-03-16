@@ -30,4 +30,14 @@ public class User {
     public void setProfilePicture(String profilePicture) { this.profilePicture = profilePicture; }
     public String getHandle() { return handle; }
     public void setHandle(String handle) { this.handle = handle; }
+
+    public User(String username, String password, String first_name, String last_name, String profile_picture) {
+        this.username = username;
+        this.password = password;
+        this.firstName = first_name;
+        this.lastName = last_name;
+        this.profilePicture = profile_picture;
+    }
+
+    public User() {}
 }
