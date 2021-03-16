@@ -1,4 +1,5 @@
-const USERS_URL = "http://localhost:8080/api/users"
+// TODO: declare URL where server listens for HTTP requests
+const USERS_URL = ""
 
 // TODO: create a new user
 export const createUser = (user) => {}
