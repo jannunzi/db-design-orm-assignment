@@ -11,6 +11,10 @@ public class UserOrmDao {
     @Autowired
     UserRepository userRepository;
 
+    public User createUser(@RequestBody User user) {
+        return userRepository.save(user);
+    }
+    
     @GetMapping("/orm/create/user/{fn}/{ln}/{un}/{pw}")
     public User createUser(
             @PathVariable("fn") String fn,
