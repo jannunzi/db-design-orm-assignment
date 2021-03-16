@@ -1,16 +1,20 @@
 package com.example.springtemplate.models;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name="users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String firstName;
     private String lastName;
     private String username;
     private String password;
     private String profilePicture;
-    private Timestamp created;
-    private Timestamp updated;
+    private String handle;
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
@@ -24,19 +28,6 @@ public class User {
     public void setPassword(String password) { this.password = password; }
     public String getProfilePicture() { return profilePicture; }
     public void setProfilePicture(String profilePicture) { this.profilePicture = profilePicture; }
-    public Timestamp getCreated() { return created; }
-    public void setCreated(Timestamp created) { this.created = created; }
-    public Timestamp getUpdated() { return updated; }
-    public void setUpdated(Timestamp updated) { this.updated = updated; }
-
-    public User(String firstName, String lastName, String username, String password, String profilePicture) {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.profilePicture = profilePicture;
-    }
-
-    public User() {
-    }
+    public String getHandle() { return handle; }
+    public void setHandle(String handle) { this.handle = handle; }
 }
