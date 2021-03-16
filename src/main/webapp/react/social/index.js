@@ -1,5 +1,5 @@
 import UserList from "./users/user-list";
-import FormUserEditor from "./users/form-user-editor";
+import UserFormEditor from "./users/user-form-editor";
 
 const {HashRouter, Link, Route} = window.ReactRouterDOM;
  
@@ -12,7 +12,7 @@ const App = () => {
                     <UserList/>
                 </Route>
                 <Route path="/users/:id" exact={true}>
-                    <FormUserEditor/>
+                    <UserFormEditor/>
                 </Route>
             </HashRouter>
         </div>
