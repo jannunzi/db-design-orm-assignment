@@ -1,7 +1,6 @@
 package com.example.springtemplate.models;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name="users")
