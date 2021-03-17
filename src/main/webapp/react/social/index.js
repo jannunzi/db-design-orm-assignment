@@ -1,10 +1,7 @@
 import UserList from "./users/user-list";
 import UserFormEditor from "./users/user-form-editor";
-
-const {HashRouter, Link, Route} = window.ReactRouterDOM;
- 
+const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
-    console.log(window.ReactRouterDOM)
     return (
         <div className="container-fluid">
             <HashRouter>
