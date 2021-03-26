@@ -1,15 +1,21 @@
 import userService from "./user-service"
 
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
-const FormUserEditor = () => {
+const UserFormEditor = () => {
     const [user, setUser] = useState({})
     useEffect(() => {
-        findUserById(id)
+        if(id !== "new") {
+            findUserById(id)
+        }
     }, []);
     const {id} = useParams()
     const history = useHistory()
+    const createUser = (user) => {
+        userService.createUser(user)
+            .then(user => history.push("/users"))
+    }
     const findUserById = (id) =>
         userService.findUserById(id)
             .then(user => setUser(user))
@@ -50,19 +56,32 @@ const FormUserEditor = () => {
                 className="form-control margin-bottom-10px"
                 onChange={(e) => setUser(user => ({...user, password: e.target.value}))}
                 value={user.password}/>
-            <button
-                onClick={() => updateUser(user.id, user)}
-                className="btn btn-success btn-block">Save</button>
+                
+            <Link to={`/users/${id}/blogs`}
+                  className="btn btn-primary btn-block"
+                  style={{width: "100%"}}>
+                Blogs
+            </Link>
+
+            <br/>
+            <br/>
+        
             <button
                 onClick={() => {
-                    history.goBack()
+                    history.push("/users")
                 }}
-                className="btn btn-danger btn-block margin-left-10px">Cancel</button>
+                className="btn btn-warning btn-block margin-right-10px">Cancel</button>
+            <button
+                onClick={() => createUser(user)}
+                className="btn btn-primary btn-block margin-right-10px">Create</button>
+            <button
+                onClick={() => updateUser(user.id, user)}
+                className="btn btn-success btn-block margin-right-10px">Save</button>
             <button
                 onClick={() => deleteUser(user.id)}
-                className="btn btn-danger btn-block margin-left-10px">Delete</button>
+                className="btn btn-danger btn-block margin-right-10px">Delete</button>
         </div>
     )
 }
 
-export default FormUserEditor
+export default UserFormEditor

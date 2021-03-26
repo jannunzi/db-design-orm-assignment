@@ -2,6 +2,7 @@ import userService from "./user-service"
 import InlineUserEditor from "./inline-user-editor";
 
 const { useState, useEffect } = React;
+const { Link } = window.ReactRouterDOM;
 
 const UserList = () => {
     const [newUser, setNewUser] = useState({})
@@ -30,29 +31,14 @@ const UserList = () => {
     return(
         <div>
             <h2>Users</h2>
+            
+            <Link to="/users/new" className="btn btn-primary">
+                Add
+            </Link>
+            <br/>
+            <br/>
+            
             <ul className="list-group">
-                <li className="list-group-item">
-                    <div className="row">
-                        <div className="col">
-                            <input placeholder="John"
-                                   title="Please enter the user's first name" className="form-control" value={newUser.title}
-                                   onChange={(e) => setNewUser(newUser => ({...newUser, firstName: e.target.value}))}/>
-                        </div>
-                        <div className="col">
-                            <input placeholder="Doe"
-                                   title="Please enter the user's last name" className="form-control" value={newUser.title}
-                                   onChange={(e) => setNewUser(newUser => ({...newUser, lastName: e.target.value}))}/>
-                        </div>
-                        <div className="col">
-                            <input placeholder="john.doe"
-                                   title="Please enter the user's username" className="form-control" value={newUser.title}
-                                   onChange={(e) => setNewUser(newUser => ({...newUser, username: e.target.value}))}/>
-                        </div>
-                        <div className="col-3">
-                            <i className="fas fa-plus fa-2x float-right" onClick={() => createUser(newUser)}></i>
-                        </div>
-                    </div>
-                </li>
             {
                 users.map(user =>
                     <li key={user.id} className="list-group-item">

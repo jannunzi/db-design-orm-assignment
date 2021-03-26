@@ -1,5 +1,5 @@
 import UserList from "./users/user-list";
-import FormUserEditor from "./users/form-user-editor";
+import UserFormEditor from "./users/user-form-editor";
 import BlogList from "./blogs/blog-list";
 import BlogFormEditor from "./blogs/blog-form-editor";
 
@@ -15,7 +15,7 @@ const App = () => {
                 </Route>
                 
                 <Route path="/users/:id" exact={true}>
-                    <FormUserEditor/>
+                    <UserFormEditor/>
                 </Route>
 
                 <Route path={["/users/:userId/blogs"]} exact={true}>

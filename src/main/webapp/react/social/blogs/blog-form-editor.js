@@ -1,7 +1,7 @@
 import blogService from "./blog-service"
 
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const BlogFormEditor = () => {
     const [blog, setBlog] = useState({})

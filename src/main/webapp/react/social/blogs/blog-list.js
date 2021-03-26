@@ -15,7 +15,11 @@ const BlogList = () => {
     }
     return(
         <div>
-            <h2>Blogs</h2>
+            <h2>
+                <Link to={`/users/${userId}`}>
+                    <i className="fas fa-arrow-left"></i>
+                </Link> Blogs
+            </h2>
             <Link to={`/users/${userId}/blogs/new`}
                   className="btn btn-primary">
                 Add
