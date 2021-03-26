@@ -1,7 +1,7 @@
-package com.example.springtemplate.daos;
+package com.example.springtemplate.social.daos;
 
-import com.example.springtemplate.models.BlogReview;
-import com.example.springtemplate.repositories.BlogReviewRepository;
+import com.example.springtemplate.social.models.BlogReview;
+import com.example.springtemplate.social.repositories.BlogReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,23 +39,24 @@ public class BlogReviewOrmDao {
         return blogReviewRepository.findBlogReviewForUser(uid);
     }
 
-    @GetMapping("/api/blogs/{blogId}")
-    public BlogReview findBlogById(
-            @PathVariable("blogId") Integer id) {
+    @GetMapping("/api/reviews/{id}")
+    public BlogReview findBlogReviewById(
+            @PathVariable("id") Integer id) {
         return blogReviewRepository.findById(id).get();
     }
     
-    @PutMapping("/api/blogs/{blogId}")
+    @PutMapping("/api/reviews/{id}")
     public BlogReview updateBlogReview(
-            @PathVariable("blogId") Integer id,
+            @PathVariable("id") Integer id,
             @RequestBody BlogReview blogReviewUpdates) {
-        BlogReview blogReview = this.findBlogById(id);
+        BlogReview blogReview = this.findBlogReviewById(id);
+        blogReview.setReview(blogReviewUpdates.getReview());
         return blogReviewRepository.save(blogReview);
     }
     
-    @DeleteMapping("/api/blogs/{blogId}")
+    @DeleteMapping("/api/reviews/{id}")
     public void deleteBlogReview(
-            @PathVariable("blogId") Integer id) {
+            @PathVariable("id") Integer id) {
         blogReviewRepository.deleteById(id);
     }
 }

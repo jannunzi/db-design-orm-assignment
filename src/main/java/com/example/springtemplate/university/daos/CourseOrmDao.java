@@ -1,7 +1,7 @@
-package com.example.springtemplate.daos;
+package com.example.springtemplate.university.daos;
 
-import com.example.springtemplate.models.Course;
-import com.example.springtemplate.repositories.CourseRepository;
+import com.example.springtemplate.university.models.Course;
+import com.example.springtemplate.university.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

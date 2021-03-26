@@ -1,4 +1,4 @@
-package com.example.springtemplate.models;
+package com.example.springtemplate.social.models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

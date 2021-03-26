@@ -1,7 +1,7 @@
-package com.example.springtemplate.daos;
+package com.example.springtemplate.social.daos;
 
-import com.example.springtemplate.models.Blog;
-import com.example.springtemplate.repositories.BlogRepository;
+import com.example.springtemplate.social.models.Blog;
+import com.example.springtemplate.social.repositories.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

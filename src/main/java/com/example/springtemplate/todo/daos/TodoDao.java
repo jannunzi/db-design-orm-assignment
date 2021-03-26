@@ -1,7 +1,7 @@
-package com.example.springtemplate.daos;
+package com.example.springtemplate.todo.daos;
 
-import com.example.springtemplate.models.Todo;
-import com.example.springtemplate.repositories.TodoRepository;
+import com.example.springtemplate.todo.models.Todo;
+import com.example.springtemplate.todo.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

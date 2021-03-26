@@ -1,7 +1,6 @@
-package com.example.springtemplate.repositories;
+package com.example.springtemplate.social.repositories;
 
-import com.example.springtemplate.models.Blog;
-import com.example.springtemplate.models.BlogReview;
+import com.example.springtemplate.social.models.BlogReview;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

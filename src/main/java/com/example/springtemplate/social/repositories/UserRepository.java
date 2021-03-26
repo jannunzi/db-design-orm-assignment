@@ -1,6 +1,6 @@
-package com.example.springtemplate.repositories;
+package com.example.springtemplate.social.repositories;
 
-import com.example.springtemplate.models.User;
+import com.example.springtemplate.social.models.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

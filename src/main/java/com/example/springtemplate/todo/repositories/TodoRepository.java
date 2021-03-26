@@ -1,6 +1,6 @@
-package com.example.springtemplate.repositories;
+package com.example.springtemplate.todo.repositories;
 
-import com.example.springtemplate.models.Todo;
+import com.example.springtemplate.todo.models.Todo;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

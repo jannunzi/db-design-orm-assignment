@@ -1,12 +1,10 @@
-package com.example.springtemplate.models;
+package com.example.springtemplate.university.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.xml.bind.v2.model.core.ID;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="sections")
@@ -24,6 +22,23 @@ public class Section {
     @ManyToOne
     @JsonIgnore
     private Course course;
+
+    @OneToMany(mappedBy="section")
+    private List<Enrollment> students;
+
+    public void addStudent(Student student, boolean teamLead) {
+        Enrollment association = new Enrollment();
+        association.setStudent(student);
+        association.setSection(this);
+        association.setStudentId(student.getId());
+        association.setSectionId(this.getId());
+        if(this.students == null)
+            this.students = new ArrayList<>();
+
+        this.students.add(association);
+        // Also add the association object to the student.
+        student.getSections().add(association);
+    }
 
     public Boolean getOnline() {
         return online;
