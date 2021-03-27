@@ -6,8 +6,9 @@ const GnrxTableRow = (
         item,
         table,
         displayFields,
-        deleteItem,
-        addRecord
+        deleteRecord,
+        createRecord,
+        linkToPrefix
     }) => {
     return(
         <tr key={item.id}>
@@ -20,7 +21,7 @@ const GnrxTableRow = (
                                     header ?
                                         <th>{key} <i className="fas fa-chevron-up"></i></th> :
                                         <td>
-                                            <Link to={`/${table}/${item.id}`}>
+                                            <Link to={`${linkToPrefix}/${item.id}`}>
                                                 {item[key]}
                                             </Link>
                                         </td>
@@ -35,11 +36,11 @@ const GnrxTableRow = (
             {
                 header ?
                     <th>
-                        <i onClick={() => deleteItem(item)}
+                        <i onClick={createRecord}
                            className="fas fa-plus gnrx-primary float-right"></i>
                     </th>:
-                    <td className="col-1">
-                        <i onClick={() => addRecord()}
+                    <td>
+                        <i onClick={() => deleteRecord(item.id)}
                            className="fas fa-trash gnrx-danger float-right"></i>
                     </td>
             }

@@ -15,8 +15,8 @@ public class Student {
     @ManyToOne
     private Department major;
 
-    @OneToMany(mappedBy = "student")
-    private List<Enrollment> sections;
+//    @OneToMany(mappedBy = "student")
+//    private List<Enrollment> sections;
 
     public Integer getId() {
         return id;
@@ -50,11 +50,11 @@ public class Student {
         this.major = major;
     }
 
-    public List<Enrollment> getSections() {
-        return sections;
-    }
-
-    public void setSections(List<Enrollment> sections) {
-        this.sections = sections;
-    }
+//    public List<Enrollment> getSections() {
+//        return sections;
+//    }
+//
+//    public void setSections(List<Enrollment> sections) {
+//        this.sections = sections;
+//    }
 }

@@ -2,24 +2,24 @@ package com.example.springtemplate.university.models;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="enrollments")
-@IdClass(EnrollmentId.class)
+//@Entity
+//@Table(name="enrollments")
+//@IdClass(EnrollmentId.class)
 public class Enrollment {
-    @Id
+//    @Id
     private Integer studentId;
-    @Id
+//    @Id
     private Integer sectionId;
 
     private Float grade;
     private String letterGrade;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name="STUDENTID", referencedColumnName="ID")
+//    @ManyToOne
+//    @PrimaryKeyJoinColumn(name="STUDENTID", referencedColumnName="ID")
     private Student student;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name="SECTIONID", referencedColumnName="ID")
+//    @ManyToOne
+//    @PrimaryKeyJoinColumn(name="SECTIONID", referencedColumnName="ID")
     private Section section;
 
     public Integer getStudentId() {

@@ -23,22 +23,22 @@ public class Section {
     @JsonIgnore
     private Course course;
 
-    @OneToMany(mappedBy="section")
-    private List<Enrollment> students;
+//    @OneToMany(mappedBy="section")
+//    private List<Enrollment> students;
 
-    public void addStudent(Student student, boolean teamLead) {
-        Enrollment association = new Enrollment();
-        association.setStudent(student);
-        association.setSection(this);
-        association.setStudentId(student.getId());
-        association.setSectionId(this.getId());
-        if(this.students == null)
-            this.students = new ArrayList<>();
-
-        this.students.add(association);
-        // Also add the association object to the student.
-        student.getSections().add(association);
-    }
+//    public void addStudent(Student student, boolean teamLead) {
+//        Enrollment association = new Enrollment();
+//        association.setStudent(student);
+//        association.setSection(this);
+//        association.setStudentId(student.getId());
+//        association.setSectionId(this.getId());
+//        if(this.students == null)
+//            this.students = new ArrayList<>();
+//
+//        this.students.add(association);
+//        // Also add the association object to the student.
+//        student.getSections().add(association);
+//    }
 
     public Boolean getOnline() {
         return online;
