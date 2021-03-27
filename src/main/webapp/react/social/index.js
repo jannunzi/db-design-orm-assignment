@@ -6,7 +6,6 @@ import BlogFormEditor from "./blogs/blog-form-editor";
 const {HashRouter, Link, Route} = window.ReactRouterDOM;
  
 const App = () => {
-    console.log(window.ReactRouterDOM)
     return (
         <div className="container-fluid">
             <HashRouter>
