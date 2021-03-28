@@ -37,6 +37,7 @@ const GnrxEditor = (
                                     onChange={(event) => {
 
                                     }}
+                                    record={record}
                                     config={column}/>
                             </li>
                         )

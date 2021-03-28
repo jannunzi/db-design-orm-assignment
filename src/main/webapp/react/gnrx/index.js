@@ -5,6 +5,8 @@ import BlogFormEditor from "./blogs/blog-form-editor";
 import GnrxList from "./list/gnrx-list";
 import GnrxEditor from "./gnrx-editor";
 import GnrxTable from "./table/gnrx-table";
+import GnrxFormElement from "./gnrx-form-element";
+import GnrxFormInput from "./form/gnrx-form-input";
 
 const {HashRouter, Link, Route} = window.ReactRouterDOM;
  
@@ -12,6 +14,9 @@ const App = () => {
     return (
         <div className="container-fluid">
             <HashRouter>
+
+                <GnrxFormInput/>
+
                 <Route path={["/table/:table1"]} exact={true}>
                     <GnrxTable dataBaseURL = "http://localhost:8080/api" 
                                displayFields = {["firstName", "lastName"]}/>
