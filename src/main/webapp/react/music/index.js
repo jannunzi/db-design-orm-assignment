@@ -9,7 +9,7 @@ const App = () => {
                 <Route path={["/playlists", "/"]} exact={true}>
                     <PlayListList/>
                 </Route>
-                <Route path="/playlists/:id" exact={true}>
+                <Route path="/playlists/:pid" exact={true}>
                     <PlayListEditor/>
                 </Route>
             </HashRouter>

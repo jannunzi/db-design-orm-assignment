@@ -5,6 +5,7 @@ import com.example.springtemplate.music.repositories.PlaylistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,13 +22,19 @@ public class PlaylistDao {
     public List<Playlist> findAllPlaylists() {
         return (List<Playlist>) repository.findAll();
     }
-    public Playlist findPlaylistById(Integer id) {
-        return null;
+    @GetMapping("/api/playlists/{pid}")
+    public Playlist findPlaylistById(
+            @PathVariable("pid") Integer id) {
+        return repository.findById(id).get();
     }
     public Playlist updatePlaylist(Integer id, Playlist newPlaylist) {
         return null;
     }
-    public void deletePlaylist(Integer id) {
 
+    @GetMapping("/api/plalists/{pid}/delete")
+    public Integer deletePlaylist(
+            @PathVariable("pid") Integer id) {
+        repository.deleteById(id);
+        return 1;
     }
 }
