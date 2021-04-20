@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>React Hello World</title>
+    <title>Movies</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="index.css"/>
@@ -16,16 +16,11 @@
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
 
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="users/user-service.js"></script>
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="users/inline-user-editor.js"></script>
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="users/user-form-editor.js"></script>
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="users/user-list.js"></script>
+<script src="theaters/theater-service.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="theaters/theater-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="theaters/theater-list.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="blogs/blog-service.js"></script>
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="blogs/blog-list.js"></script>
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="blogs/blog-form-editor.js"></script>
-
-<script type="text/jsx" data-type="module" data-plugins="transform-modules-umd" src="index.js"></script>
+<script src="index.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script type="text/jsx" data-type="module" data-plugins="transform-modules-umd">
     import App from "index";
     ReactDOM.render(
