@@ -48,4 +48,13 @@ public class Article {
     public void setBibliography(String bibliography) {
         this.bibliography = bibliography;
     }
+
+    public Article(Integer id, String title, String content, String bibliography) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.bibliography = bibliography;
+    }
+
+    public Article() {}
 }
