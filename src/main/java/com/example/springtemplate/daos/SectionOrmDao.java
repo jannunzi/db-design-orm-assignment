@@ -1,6 +1,5 @@
 package com.example.springtemplate.daos;
 
-import com.example.springtemplate.models.Course;
 import com.example.springtemplate.models.Section;
 import com.example.springtemplate.repositories.CourseRepository;
 import com.example.springtemplate.repositories.SectionRepository;
