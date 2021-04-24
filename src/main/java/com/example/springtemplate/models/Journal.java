@@ -63,5 +63,15 @@ public class Journal {
     public void setVolume(Integer volume) {
         this.volume = volume;
     }
+
+    public Journal(Integer id, String name, Topic topic, String date, Integer volume) {
+        this.id = id;
+        this.name = name;
+        this.topic = topic;
+        this.date = date;
+        this.volume = volume;
+    }
+
+    public Journal() {}
 }
 
