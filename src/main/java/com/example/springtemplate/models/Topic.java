@@ -5,5 +5,18 @@ public enum Topic {
     ART,
     HISTORY,
     SPORT,
-    SCIENCE
+    SCIENCE;
+
+    public Topic getTopicFromString(String topic) {
+        switch (topic) {
+            case "COMPUTER_SCIENCE":
+                return COMPUTER_SCIENCE;
+            case "ART":
+                return ART;
+            case "HISTORY":
+                return HISTORY;
+            case "SPORT":
+                
+        }
+    }
 }
