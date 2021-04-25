@@ -119,33 +119,32 @@ public class JournalJdbcDao {
     System.out.println("JDBC DAO");
     JournalJdbcDao dao = new JournalJdbcDao();
     //create journal
-        Journal testJournal = new Journal(1, "The Oldies", Topic.HISTORY, "19990803", 1);
+//        Journal testJournal = new Journal(9, "The Oldies", Topic.HISTORY, "19990803", 1);
+//
+//        dao.createJournal(testJournal);
 
-        dao.createJournal(testJournal);
 
-
-    //retrieve all journals
-//        List<User> users = dao.findAllUsers();
-//        for(User user: users) {
-//            System.out.println(user.getUsername());
+//    //retrieve all journals
+//        List<Journal> journals = dao.findAllJournals();
+//        for(Journal journal: journals) {
+//            System.out.println(journal.getName());
 //        }
 
     //find journal by id
-//        User user = dao.findUserById(1);
-//        System.out.println(user.getUsername());
+//        Journal journal = dao.findJournalById(1);
+//        System.out.println(journal.getName());
 
     //delete journal
-//        dao.deleteUser(1);
-//        List<User> users = dao.findAllUsers();
-//        for(User user: users) {
-//            System.out.println(user.getUsername());
+//        dao.deleteJournal(1);
+//        List<Journal> journals = dao.findAllJournals();
+//        for(Journal journal: journals) {
+//            System.out.println(journal.getName());
 //        }
 
     //update journal
-//        User betterJane = new User("Jane", "Doey", "jjdoe", "hkdh", "jjdoe@gmail.com", "19440605");
-//        dao.updateUser(3, betterJane);
-//        User jane = dao.findUserById(3);
-//        System.out.println(jane.getUsername());
-
+//        Journal goldies = new Journal(8,"The Goldies", Topic.HISTORY, "19990803", 1);
+//        dao.updateJournal(2, goldies);
+//        Journal oldies = dao.findJournalById(2);
+//        System.out.println(oldies.getName());
   }
 }
