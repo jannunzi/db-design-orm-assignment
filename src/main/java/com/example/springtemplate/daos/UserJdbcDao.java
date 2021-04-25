@@ -124,7 +124,7 @@ public class UserJdbcDao {
         //retrieve all users
 //        List<User> users = dao.findAllUsers();
 //        for(User user: users) {
-//            System.out.println(user.getUsername());
+//            System.out.println(user.getUsername() + ' ' + user.getDate());
 //        }
 
         //find user by id
@@ -142,6 +142,6 @@ public class UserJdbcDao {
 //        User betterJane = new User("Jane", "Doey", "jjdoe", "hkdh", "jjdoe@gmail.com", "19440605");
 //        dao.updateUser(3, betterJane);
 //        User jane = dao.findUserById(3);
-//        System.out.println(jane.getUsername());
+//        System.out.println(betterJane.getId());
     }
 }
