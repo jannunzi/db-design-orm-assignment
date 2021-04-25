@@ -21,7 +21,6 @@ public class UserJdbcDao {
     String FIND_ALL_USERS = "SELECT * FROM users";
     String FIND_USER_BY_ID = "SELECT * FROM users WHERE id=?";
     String DELETE_USER = "DELETE FROM users WHERE id=?";
-    String UPDATE_USER_PASSWORD = "UPDATE users SET password=? WHERE id=?";
     String UPDATE_USER = "UPDATE users SET first_name=?, last_name=?, username=?, password=? WHERE id=?";
 
     private Connection getConnection() throws ClassNotFoundException, SQLException {
@@ -106,7 +105,7 @@ public class UserJdbcDao {
         statement.setString(3, user.getFirstName());
         statement.setString(4, user.getLastName());
         statement.setString(5, user.getEmail());
-        statement.setString(6, user.getDate());
+        statement.setString(6, user.getDateOfBirth());
         rowsUpdated = statement.executeUpdate();
         closeConnection(connection);
         return rowsUpdated;

@@ -13,7 +13,7 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private String date;
+    private String dateOfBirth;
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
@@ -33,16 +33,16 @@ public class User {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public String getDate() { return date; }
-    public void setDate(String date) { this.date = date; }
+    public String getDateOfBirth() { return dateOfBirth; }
+    public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
 
-    public User(String username, String password, String first_name, String last_name, String email, String date) {
+    public User(String username, String password, String first_name, String last_name, String email, String dateOfBirth) {
         this.username = username;
         this.password = password;
         this.firstName = first_name;
         this.lastName = last_name;
         this.email = email;
-        this.date = date;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public User() {}
