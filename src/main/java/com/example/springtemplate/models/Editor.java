@@ -6,15 +6,15 @@ import javax.persistence.*;
 public class Editor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer editorId;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
     private Integer userId;
 
-    public Integer getEditorId() { return editorId; }
-    public void setEditorId(Integer id) { this.editorId = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public Role getRole() { return role; }
     public void setRole(Role role) { this.role = role; }
@@ -22,8 +22,8 @@ public class Editor {
     public Integer getUserId() { return userId; }
     public void setUserId(Integer id) { this.userId = id; }
 
-    public Editor(Integer editorId, Role role, Integer userId) {
-        this.editorId = editorId;
+    public Editor(Integer id, Role role, Integer userId) {
+        this.id = id;
         this.role = role;
         this.userId = userId;
     }

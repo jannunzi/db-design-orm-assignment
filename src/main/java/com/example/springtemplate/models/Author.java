@@ -12,19 +12,20 @@ public class Author {
     private Topic primaryTopic;
     private Integer userId;
 
-    public Author(Topic topic, Integer userId) {
-        this.primaryTopic = topic;
+    public Author(Integer id, Topic primaryTopic, Integer userId) {
+        this.id = id;
+        this.primaryTopic = primaryTopic;
         this.userId = userId;
     }
 
     public Author() {
     }
 
-    public Integer getAuthorId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setAuthorId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

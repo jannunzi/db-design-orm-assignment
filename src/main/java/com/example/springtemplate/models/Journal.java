@@ -1,9 +1,6 @@
 package com.example.springtemplate.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -17,7 +14,7 @@ public class Journal {
     @Enumerated(EnumType.STRING)
     private Topic topic;
 
-    private String date;
+    private String releaseDate;
     private Integer volume;
 
     //@OneToMany(mappedBy = "User")
@@ -48,12 +45,12 @@ public class Journal {
         this.topic = topic;
     }
 
-    public String getDate() {
-        return date;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public Integer getVolume() {
@@ -64,11 +61,11 @@ public class Journal {
         this.volume = volume;
     }
 
-    public Journal(Integer id, String name, Topic topic, String date, Integer volume) {
+    public Journal(Integer id, String name, Topic topic, String releaseDate, Integer volume) {
         this.id = id;
         this.name = name;
         this.topic = topic;
-        this.date = date;
+        this.releaseDate = releaseDate;
         this.volume = volume;
     }
 

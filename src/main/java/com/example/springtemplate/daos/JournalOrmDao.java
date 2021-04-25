@@ -1,9 +1,7 @@
 package com.example.springtemplate.daos;
 
 import com.example.springtemplate.models.Journal;
-import com.example.springtemplate.models.User;
 import com.example.springtemplate.repositories.JournalRepository;
-import com.example.springtemplate.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -46,7 +44,7 @@ public class JournalOrmDao {
         Journal journal = journalRepository.findJournalById(id);
         journal.setName(journalUpdates.getName());
         journal.setTopic(journalUpdates.getTopic());
-        journal.setDate(journalUpdates.getDate());
+        journal.setReleaseDate(journalUpdates.getReleaseDate());
         journal.setVolume(journalUpdates.getVolume());
         return journalRepository.save(journal);
     }

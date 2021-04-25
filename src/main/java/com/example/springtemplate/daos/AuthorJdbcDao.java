@@ -57,6 +57,7 @@ public class AuthorJdbcDao {
     ResultSet resultSet = statement.executeQuery();
     while (resultSet.next()) {
       Author author = new Author(
+              resultSet.getInt("id"),
               Topic.getTopicFromString(resultSet.getString("primary_topic")),
               resultSet.getInt("user_id")
       );
@@ -74,6 +75,7 @@ public class AuthorJdbcDao {
     ResultSet resultSet = statement.executeQuery();
     if (resultSet.next()) {
       author = new Author(
+              resultSet.getInt("id"),
               Topic.getTopicFromString(resultSet.getString("primary_topic")),
               resultSet.getInt("user_id")
       );

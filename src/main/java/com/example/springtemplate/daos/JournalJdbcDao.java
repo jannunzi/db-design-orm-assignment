@@ -2,7 +2,6 @@ package com.example.springtemplate.daos;
 
 import com.example.springtemplate.models.Journal;
 import com.example.springtemplate.models.Topic;
-import com.example.springtemplate.models.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -46,7 +45,7 @@ public class JournalJdbcDao {
     statement = connection.prepareStatement(CREATE_JOURNAL);
     statement.setString(1, journal.getName());
     statement.setString(2, journal.getTopic().description);
-    statement.setString(3, journal.getDate());
+    statement.setString(3, journal.getReleaseDate());
     statement.setInt(4, journal.getVolume());
     rowsUpdated = statement.executeUpdate();
     closeConnection(connection);
@@ -107,7 +106,7 @@ public class JournalJdbcDao {
     statement = connection.prepareStatement(UPDATE_JOURNAL);
     statement.setString(1, newJournal.getName());
     statement.setString(2, newJournal.getTopic().description);
-    statement.setString(3, newJournal.getDate());
+    statement.setString(3, newJournal.getReleaseDate());
     statement.setInt(4, newJournal.getVolume());
     statement.setInt(5, journalId);
     rowsUpdated = statement.executeUpdate();
