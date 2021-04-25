@@ -125,31 +125,31 @@ public class ArticleJdbcDao {
         ArticleJdbcDao dao = new ArticleJdbcDao();
 
         //create article
-        Article medievals = new Article("Medieval Castles", "Very cool stuff", "youtube", 7, 5, 1);
+//        Article medievals = new Article("Medieval Castles", "Very cool stuff", "youtube", 2, 5, 2);
+//
+//        dao.createArticle(medievals);
 
-        dao.createArticle(medievals);
-
-        //retrieve all users
-//        List<User> users = dao.findAllUsers();
-//        for(User user: users) {
-//            System.out.println(user.getUsername());
+        //retrieve all articles
+//        List<Article> articles = dao.findAllArticles();
+//        for(Article article: articles) {
+//            System.out.println(article.getTitle());
 //        }
 
-        //find user by id
-//        User user = dao.findUserById(1);
-//        System.out.println(user.getUsername());
+        //find article by id
+//        Article article = dao.findArticleById(1);
+//        System.out.println(article.getTitle());
 
-        //delete user
-//        dao.deleteUser(1);
-//        List<User> users = dao.findAllUsers();
-//        for(User user: users) {
-//            System.out.println(user.getUsername());
+        //delete article
+//        dao.deleteArticle(1);
+//        List<Article> articles = dao.findAllArticles();
+//        for(Article article: articles) {
+//            System.out.println(article.getTitle());
 //        }
 
-        //update user
-//        User betterJane = new User("Jane", "Doey", "jjdoe", "hkdh", "jjdoe@gmail.com", "19440605");
-//        dao.updateUser(3, betterJane);
-//        User jane = dao.findUserById(3);
-//        System.out.println(jane.getUsername());
+        //update article
+//        Article middies = new Article("Medieval Trebuchets", "Super cool stuff", "youtube", 2, 5, 2);
+//        dao.updateArticle(4, middies);
+//        Article medievals = dao.findArticleById(4);
+//        System.out.println(medievals.getTitle());
     }
 }
