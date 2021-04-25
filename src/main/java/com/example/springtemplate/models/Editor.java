@@ -22,7 +22,7 @@ public class Editor {
     public Integer getUserId() { return userId; }
     public void setUserId(Integer id) { this.userId = id; }
 
-    public Editor(Integer editorId, String subject, Integer userId) {
+    public Editor(Integer editorId, Role role, Integer userId) {
         this.editorId = editorId;
         this.role = role;
         this.userId = userId;
