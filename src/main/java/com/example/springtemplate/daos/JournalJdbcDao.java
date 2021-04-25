@@ -1,5 +1,7 @@
 package com.example.springtemplate.daos;
 
+import com.example.springtemplate.models.Journal;
+import com.example.springtemplate.models.Topic;
 import com.example.springtemplate.models.User;
 
 import java.sql.Connection;
@@ -43,9 +45,9 @@ public class JournalJdbcDao {
     connection = getConnection();
     statement = connection.prepareStatement(CREATE_JOURNAL);
     statement.setString(1, journal.getName());
-    statement.setString(2, journal.getTopic());
-    statement.setString(3, journal.getReleaseDate());
-    statement.setString(4, journal.getVolume());
+    statement.setString(2, journal.getTopic().description);
+    statement.setString(3, journal.getDate());
+    statement.setInt(4, journal.getVolume());
     rowsUpdated = statement.executeUpdate();
     closeConnection(connection);
     return rowsUpdated;
@@ -58,10 +60,11 @@ public class JournalJdbcDao {
     ResultSet resultSet = statement.executeQuery();
     while (resultSet.next()) {
       Journal journal = new Journal(
+              resultSet.getInt("id"),
               resultSet.getString("name"),
-              resultSet.getString("topic"),
+              Topic.getTopicFromString(resultSet.getString("topic")),
               resultSet.getString("release_date"),
-              resultSet.getString("volume")
+              resultSet.getInt("volume")
       );
       journals.add(journal);
     }
@@ -77,10 +80,11 @@ public class JournalJdbcDao {
     ResultSet resultSet = statement.executeQuery();
     if (resultSet.next()) {
       journal = new Journal(
+              resultSet.getInt("id"),
               resultSet.getString("name"),
-              resultSet.getString("topic"),
+              Topic.getTopicFromString(resultSet.getString("topic")),
               resultSet.getString("release_date"),
-              resultSet.getString("volume")
+              resultSet.getInt("volume")
       );
     }
     closeConnection(connection);
@@ -102,9 +106,9 @@ public class JournalJdbcDao {
     connection = getConnection();
     statement = connection.prepareStatement(UPDATE_JOURNAL);
     statement.setString(1, newJournal.getName());
-    statement.setString(2, newJournal.getTopic());
-    statement.setString(3, newJournal.getReleaseDate());
-    statement.setString(4, newJournal.getVolume());
+    statement.setString(2, newJournal.getTopic().description);
+    statement.setString(3, newJournal.getDate());
+    statement.setInt(4, newJournal.getVolume());
     statement.setInt(5, journalId);
     rowsUpdated = statement.executeUpdate();
     closeConnection(connection);

@@ -1,5 +1,6 @@
 package com.example.springtemplate.repositories;
 
+import com.example.springtemplate.models.Journal;
 import com.example.springtemplate.models.User;
 
 import org.springframework.data.jpa.repository.Query;
