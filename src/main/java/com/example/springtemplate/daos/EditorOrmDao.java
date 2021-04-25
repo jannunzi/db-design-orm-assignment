@@ -34,7 +34,7 @@ public class EditorOrmDao {
             @RequestBody Editor editorUpdates) {
         Editor editor = editorRepository.findEditorById(id);
         editor.setRole(editorUpdates.getRole());
-        editor.setUser(editorUpdates.getUser());
+        editor.setUserId(editorUpdates.getUserId());
         return editorRepository.save(editor);
     }
     
