@@ -6,23 +6,26 @@ import javax.persistence.*;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer authorId;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
-    private Topic topic;
+    private Topic primaryTopic;
     private Integer userId;
 
     public Author(Topic topic, Integer userId) {
-        this.topic = topic;
+        this.primaryTopic = topic;
         this.userId = userId;
     }
 
+    public Author() {
+    }
+
     public Integer getAuthorId() {
-        return authorId;
+        return id;
     }
 
     public void setAuthorId(Integer id) {
-        this.authorId = id;
+        this.id = id;
     }
 
     public Integer getUserId() {
@@ -34,10 +37,10 @@ public class Author {
     }
 
     public Topic getTopic() {
-        return topic;
+        return primaryTopic;
     }
 
     public void setTopic(Topic topc) {
-        this.topic = topc;
+        this.primaryTopic = topc;
     }
 }

@@ -4,6 +4,7 @@ const {useParams, useHistory} = window.ReactRouterDOM;
 const UserFormEditor = () => {
         const {id} = useParams()
         const [user, setUser] = useState({})
+        const history = useHistory()
         useEffect(() => {
                 if(id !== "new") {
                         findUserById(id)
@@ -23,9 +24,7 @@ const UserFormEditor = () => {
                 .then(() => history.goBack())
         return (
             <div>
-                    <h2>new User Editor</h2>
-                    <label>ID</label>
-                    <input value={user.id}/><br/>
+                    <h2>User Editor</h2>
                     <label>First Name</label>
                     <input onChange={(e) =>
                         setUser(user =>
@@ -46,6 +45,16 @@ const UserFormEditor = () => {
                         setUser(user =>
                                     ({...user, password: e.target.value}))}
                            value={user.password}/><br/>
+                    <label>Email</label>
+                    <input onChange={(e) =>
+                        setUser(user =>
+                                    ({...user, email: e.target.value}))}
+                           value={user.email}/><br/>
+                    <label>DOB</label>
+                    <input onChange={(e) =>
+                        setUser(user =>
+                                    ({...user, dateOfBirth: e.target.value}))}
+                           value={user.dateOfBirth}/><br/>
                     <button
                         onClick={() => {
                                 history.goBack()}}>

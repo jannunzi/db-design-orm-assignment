@@ -1,7 +1,7 @@
 package com.example.springtemplate.models;
 
 public enum Topic {
-    COMPUTER_SCIENCE("COMPUTER SCIENCE"),
+    COMPUTER_SCIENCE("COMPUTER_SCIENCE"),
     ART("ART"),
     HISTORY("HISTORY"),
     SPORT("SPORT"),
@@ -15,7 +15,7 @@ public enum Topic {
 
     public static Topic getTopicFromString(String topic) {
         switch (topic) {
-            case "COMPUTER SCIENCE":
+            case "COMPUTER_SCIENCE":
                 return COMPUTER_SCIENCE;
             case "ART":
                 return ART;
