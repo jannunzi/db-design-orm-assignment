@@ -7,23 +7,37 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer authorId;
-    private String subject;
+
+    @Enumerated(EnumType.STRING)
+    private Topic topic;
     private Integer userId;
 
-    public Integer getAuthorId() { return authorId; }
-    public void setAuthorId(Integer id) { this.authorId = id; }
-
-    public String getSubject() { return subject; }
-    public void setSubject(String subject) { this.subject = subject; }
-
-    public Integer getUserId() { return userId; }
-    public void setUserId(Integer id) { this.userId = id; }
-
-    public Author(Integer authorId, String subject, Integer userId) {
-        this.authorId = authorId;
-        this.subject = subject;
+    public Author(Topic topic, Integer userId) {
+        this.topic = topic;
         this.userId = userId;
     }
 
-    public Author() {}
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer id) {
+        this.authorId = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer id) {
+        this.userId = id;
+    }
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topc) {
+        this.topic = topc;
+    }
 }
