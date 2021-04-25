@@ -13,7 +13,7 @@ public class EditorJdbcDao {
     static final String CONFIG = "serverTimezone=UTC";
     static final String URL =
             "jdbc:mysql://"+HOST+"/"+SCHEMA+"?"+CONFIG;
-    static final String USERNAME = "root";
+    static final String USERNAME = "YOUR_USERNAME";
     static final String PASSWORD = "P@ssw0rd";
 
     static Connection connection = null;
