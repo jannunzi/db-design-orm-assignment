@@ -118,5 +118,34 @@ public class JournalJdbcDao {
   public static void main(String[] args) throws SQLException, ClassNotFoundException {
     System.out.println("JDBC DAO");
     JournalJdbcDao dao = new JournalJdbcDao();
+    //create journal
+        Journal testJournal = new Journal(1, "The Oldies", Topic.HISTORY, "19990803", 1);
+
+        dao.createJournal(testJournal);
+
+
+    //retrieve all journals
+//        List<User> users = dao.findAllUsers();
+//        for(User user: users) {
+//            System.out.println(user.getUsername());
+//        }
+
+    //find journal by id
+//        User user = dao.findUserById(1);
+//        System.out.println(user.getUsername());
+
+    //delete journal
+//        dao.deleteUser(1);
+//        List<User> users = dao.findAllUsers();
+//        for(User user: users) {
+//            System.out.println(user.getUsername());
+//        }
+
+    //update journal
+//        User betterJane = new User("Jane", "Doey", "jjdoe", "hkdh", "jjdoe@gmail.com", "19440605");
+//        dao.updateUser(3, betterJane);
+//        User jane = dao.findUserById(3);
+//        System.out.println(jane.getUsername());
+
   }
 }

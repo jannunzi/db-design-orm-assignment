@@ -114,26 +114,34 @@ public class UserJdbcDao {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         System.out.println("JDBC DAO");
         UserJdbcDao dao = new UserJdbcDao();
-//        User adam = new User("Adam", "Smith", "adams", "invisiblehand", "asmith@gmail.com", "06-05-1723");
-//        User catherine = new User("Catherine", "Wood", "cathie", "bitcoinisbig", "cwood@gmail.com", "11-26-1955");
-//        dao.createUser(adam);
-//        dao.createUser(thomas);
-//        dao.createUser(catherine);
+        //create user
+//        User john = new User("John", "Doe", "jdoe", "gefsh", "jdoe@gmail.com", "19340605");
+//        User jane = new User("Jane", "Doe", "jadoe", "hkdh", "jadoe@gmail.com", "19440605");
+//
+//        dao.createUser(john);
+//        dao.createUser(jane);
+
+        //retrieve all users
 //        List<User> users = dao.findAllUsers();
 //        for(User user: users) {
 //            System.out.println(user.getUsername());
 //        }
-//        User user = dao.findUserById(5);
+
+        //find user by id
+//        User user = dao.findUserById(1);
 //        System.out.println(user.getUsername());
-//        dao.deleteUser(5);
+
+        //delete user
+//        dao.deleteUser(1);
 //        List<User> users = dao.findAllUsers();
 //        for(User user: users) {
 //            System.out.println(user.getUsername());
 //        }
-//        User thomas = new User("Thomas", "Sowell", "thomas", "polymath", "tsowell@gmail.com", "02-14-1990");
-//        User newTom = new User( "Tom", "Sowell", "tom", "knowitall", thomas.getEmail(), thomas.getDateOfBirth());
-//        dao.updateUser(6, newTom);
-//        User tom = dao.findUserById(6);
-//        System.out.println(tom.getUsername());
+
+        //update user
+//        User betterJane = new User("Jane", "Doey", "jjdoe", "hkdh", "jjdoe@gmail.com", "19440605");
+//        dao.updateUser(3, betterJane);
+//        User jane = dao.findUserById(3);
+//        System.out.println(jane.getUsername());
     }
 }

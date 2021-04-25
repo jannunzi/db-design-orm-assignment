@@ -123,5 +123,33 @@ public class ArticleJdbcDao {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         System.out.println("JDBC DAO");
         ArticleJdbcDao dao = new ArticleJdbcDao();
+
+        //create article
+        Article medievals = new Article("Medieval Castles", "Very cool stuff", "youtube", 7, 5, 1);
+
+        dao.createArticle(medievals);
+
+        //retrieve all users
+//        List<User> users = dao.findAllUsers();
+//        for(User user: users) {
+//            System.out.println(user.getUsername());
+//        }
+
+        //find user by id
+//        User user = dao.findUserById(1);
+//        System.out.println(user.getUsername());
+
+        //delete user
+//        dao.deleteUser(1);
+//        List<User> users = dao.findAllUsers();
+//        for(User user: users) {
+//            System.out.println(user.getUsername());
+//        }
+
+        //update user
+//        User betterJane = new User("Jane", "Doey", "jjdoe", "hkdh", "jjdoe@gmail.com", "19440605");
+//        dao.updateUser(3, betterJane);
+//        User jane = dao.findUserById(3);
+//        System.out.println(jane.getUsername());
     }
 }
