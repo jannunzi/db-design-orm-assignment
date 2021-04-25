@@ -1,5 +1,5 @@
-import UserList from "./users/user-list";
-import UserFormEditor from "./users/user-form-editor";
+import UserList from "./user-content/user-list";
+import UserFormEditor from "./user-content/user-form-editor";
 const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
     return (
