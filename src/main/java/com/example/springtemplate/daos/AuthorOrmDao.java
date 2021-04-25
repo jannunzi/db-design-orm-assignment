@@ -34,6 +34,7 @@ public class AuthorOrmDao {
             @RequestBody Author authorUpdates) {
         Author author = authorRepository.findAuthorById(id);
         author.setTopic(authorUpdates.getTopic());
+        author.setUser(authorUpdates.getUser());
         return authorRepository.save(author);
     }
     
