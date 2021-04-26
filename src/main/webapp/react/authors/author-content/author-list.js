@@ -22,7 +22,7 @@ const AuthorList = () => {
                     authors.map(author =>
                         <li className="btn" key={author.id}>
                             <Link className="btn btn-light btn-block" to={`/authors/${author.id}`}>
-                                {author.topic}
+                                {author.primaryTopic}
                             </Link>
                         </li>)
                 }
