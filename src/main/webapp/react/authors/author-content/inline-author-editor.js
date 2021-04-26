@@ -12,8 +12,8 @@ const InlineAuthorEditor = ({author, deleteAuthor, updateAuthor}) => {
                     <div className="col">
                         <input
                             className="form-control"
-                            value={authorCopy.role}
-                            onChange={(e)=>setAuthorCopy(authorCopy => ({...authorCopy, role: e.target.value}))}/>
+                            value={authorCopy.primaryTopic}
+                            onChange={(e)=>setAuthorCopy(authorCopy => ({...authorCopy, primaryTopic: e.target.value}))}/>
                     </div>
                     <div className="col">
                         <input
@@ -50,7 +50,7 @@ const InlineAuthorEditor = ({author, deleteAuthor, updateAuthor}) => {
                 <div className="row">
                     <div className="col">
                         <Link to={`/authors/${authorCopy.id}`}>
-                            {authorCopy.role}
+                            {authorCopy.primaryTopic}
                         </Link>
                     </div>
                     <div className="col">
