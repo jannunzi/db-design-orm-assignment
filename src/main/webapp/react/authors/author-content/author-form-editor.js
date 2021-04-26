@@ -25,11 +25,11 @@ const AuthorFormEditor = () => {
     return (
         <div>
             <h2>Author Editor</h2>
-            <label>Role</label>
+            <label>Primary Topic</label>
             <input onChange={(e) =>
                 setAuthor(author =>
-                    ({...author, topic: e.target.value}))}
-                   value={author.topic}/><br/>
+                    ({...author, primaryTopic: e.target.value}))}
+                   value={author.primaryTopic}/><br/>
             <label>User ID</label>
             <input onChange={(e) =>
                 setAuthor(author =>
