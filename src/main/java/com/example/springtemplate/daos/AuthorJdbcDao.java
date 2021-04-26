@@ -1,7 +1,6 @@
 package com.example.springtemplate.daos;
 
-import com.example.springtemplate.models.Author;
-import com.example.springtemplate.models.Topic;
+import com.example.springtemplate.models.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -94,7 +93,7 @@ public class AuthorJdbcDao {
     return rowsDeleted;
   }
 
-  public Integer updateJournal(Integer authorId, Author newAuthor) throws SQLException, ClassNotFoundException {
+  public Integer updateAuthor(Integer authorId, Author newAuthor) throws SQLException, ClassNotFoundException {
     Integer rowsUpdated = 0;
     connection = getConnection();
     statement = connection.prepareStatement(UPDATE_AUTHOR);
@@ -109,5 +108,35 @@ public class AuthorJdbcDao {
   public static void main(String[] args) throws SQLException, ClassNotFoundException {
     System.out.println("JDBC DAO");
     AuthorJdbcDao dao = new AuthorJdbcDao();
+
+//    create new authors
+//    Author yusuke = new Author(Topic.ART, 4);
+//    Author one = new Author(Topic.ART, 5);
+//    dao.createAuthor(yusuke);
+//    dao.createAuthor(one);
+//
+//    list all authors
+//    List<Author> authors = dao.findAllAuthors();
+//    for(Author author: authors) {
+//      System.out.println(author.getAuthorId());
+//    }
+//
+//    find author by id
+//    Author author = dao.findAuthorById(1);
+//        System.out.println(author.getAuthorId());
+//
+//
+//    delete author
+//        dao.deleteAuthor(1);
+//        List<Author> authors1 = dao.findAllAuthors();
+//        for(Author author1: authors1) {
+//            System.out.println(author1.getAuthorId());
+//        }
+
+
+//        Author changeOne = new Author(Topic.SCIENCE, 6);
+//        dao.updateAuthor(5, changeOne);
+//        Author one = dao.findAuthorById(6);
+//        System.out.println(one.getAuthorID());
   }
 }

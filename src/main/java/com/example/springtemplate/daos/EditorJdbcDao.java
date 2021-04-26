@@ -2,6 +2,7 @@ package com.example.springtemplate.daos;
 
 import com.example.springtemplate.models.Editor;
 import com.example.springtemplate.models.Role;
+import com.example.springtemplate.models.User;
 
 import java.sql.*;
 import java.util.*;
@@ -13,7 +14,7 @@ public class EditorJdbcDao {
     static final String CONFIG = "serverTimezone=UTC";
     static final String URL =
             "jdbc:mysql://"+HOST+"/"+SCHEMA+"?"+CONFIG;
-    static final String USERNAME = "YOUR_USERNAME";
+    static final String USERNAME = "root";
     static final String PASSWORD = "P@ssw0rd";
 
     static Connection connection = null;
@@ -42,7 +43,7 @@ public class EditorJdbcDao {
         if(resultSet.next()) {
             editor = new Editor(
                     resultSet.getInt("editorId"),
-                    Role.getRoleFromString("role"),
+                    Role.getRoleFromString(resultSet.getString("role")),
                     resultSet.getInt("userId")
             );
         }
@@ -96,6 +97,41 @@ public class EditorJdbcDao {
         rowsUpdated = statement.executeUpdate();
         closeConnection(connection);
         return rowsUpdated;
+    }
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        System.out.println("JDBC DAO");
+        EditorJdbcDao dao = new EditorJdbcDao();
+
+//        create new editors
+//        Editor hawk = new Editor(1, Role.HEAD_EDITOR, 1);
+//        Editor ttm = new Editor(2, Role.JUNIOR_EDITOR, 3);
+//        dao.createEditor(hawk);
+//        dao.createEditor(ttm);
+//
+//        list all editors
+//        List<Editor> editors = dao.findAllEditors();
+//        for(Editor editor: editors) {
+//            System.out.println(editor.getEditorId());
+//        }
+
+//        find editor by id
+//        Editor editor = dao.findEditorById(1);
+//        System.out.println(author.getEditorId());
+//
+//        delete editor
+//        dao.deleteEditor(1);
+//        List<Editor> Editors = dao.findAllEditors();
+//        for(Editor editor: editors) {
+//            System.out.println(editor.getEditorId());
+//        }
+//
+//        update editor
+//        Editor ttmUpgraded = new Editor(2, Role.HEAD_EDITOR, 3);
+//        dao.updateEditor(3, ttmUpgraded);
+//        Editor tanktop = dao.findEditorById(3);
+//        System.out.println(tanktop.getRole());
+
     }
 }
 
