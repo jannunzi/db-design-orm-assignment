@@ -16,7 +16,7 @@ public interface PatientRepository
   @Query(value = "SELECT * FROM patients WHERE id=:userId",
           nativeQuery = true)
   Patient findPatientById(@Param("userId") Integer id);
-  @Query(value = "SELECT * FROM patients WHERE doctor_id=:doctorId",
+  @Query(value = "SELECT * FROM patients WHERE patients.doctor_id=:doctorId",
   nativeQuery = true)
   List<Patient> findPatientsForDoctor(@Param("doctorId") Doctor doc);
 

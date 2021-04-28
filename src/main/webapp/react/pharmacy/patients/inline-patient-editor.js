@@ -57,6 +57,11 @@ const InlinePatientEditor = ({patient, deletePatient, updatePatient}) => {
                             value={patientCopy.conditions}
                             onChange={(e)=>setPatientCopy(patientCopy => ({...patientCopy, conditions: e.target.value}))}/>
                     </div>
+                     <div className="col-1">
+                        <Link to={`/patients/${patientCopy.id}/prescriptions`}>
+                            Prescriptions
+                        </Link>
+                    </div>
 
 
                     <div className="col-2">
@@ -108,6 +113,11 @@ const InlinePatientEditor = ({patient, deletePatient, updatePatient}) => {
                     <div className="col">
                         <Link to={`/patients/${patientCopy.id}`}>
                             {patientCopy.conditions}
+                        </Link>
+                    </div>
+                    <div className="col-1">
+                        <Link to={`/patients/${patientCopy.id}/prescriptions`}>
+                            Prescriptions
                         </Link>
                     </div>
                     <div className="col-1">

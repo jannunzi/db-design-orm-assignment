@@ -27,8 +27,8 @@ public class PatientOrmDao {
     return patientRepository.save(patient);
   }
 
-  @GetMapping("/api/doctors/{doctorId}/patients")
-  public List<Patient> findPatientsForDoctor(@PathVariable("doctorId") Integer docId){
+  @GetMapping("/api/doctors/{id}/patients")
+  public List<Patient> findPatientsForDoctor(@PathVariable("id") Integer docId){
     Doctor doc = doctorRepository.findById(docId).get();
     return doc.getPatients();
   }

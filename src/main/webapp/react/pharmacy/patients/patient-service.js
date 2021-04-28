@@ -1,16 +1,16 @@
 const DOCTOR_URL = "http://localhost:8080/api/doctors"
 const PATIENT_URL = "http://localhost:8080/api/patients"
 
-export const createPatientForDoctor = (doctorId, patient) =>
-    fetch(`${DOCTOR_URL}/${doctorId}/patients`, {
+export const createPatientForDoctor = (id, patient) =>
+    fetch(`${DOCTOR_URL}/${id}/patients`, {
         method: 'POST',
         body: JSON.stringify(patient),
         headers: {'content-type': 'application/json'}
     })
     .then(response => response.json())
 
-export const findPatientsForDoctor = (doctorId) =>
-    fetch(`${DOCTOR_URL}/${doctorId}/patients`)
+export const findPatientsForDoctor = (id) =>
+    fetch(`${DOCTOR_URL}/${id}/patients`)
         .then(response => response.json())
 
 export const findPatientById = (id) =>

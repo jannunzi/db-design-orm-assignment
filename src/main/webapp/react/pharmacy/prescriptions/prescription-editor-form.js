@@ -5,10 +5,10 @@ const {useParams, useHistory} = window.ReactRouterDOM;
 
 const PrescriptionEditorForm = () => {
     const [prescription, setPrescription] = useState({})
-    const {prescriptionId} = useParams()
+    const {id} = useParams()
     const history = useHistory()
     useEffect(() => {
-        findPrescriptionById(prescriptionId)
+        findPrescriptionById(id)
     }, []);
     const findPrescriptionById = (id) =>
         prescriptionService.findPrescriptionById(id)

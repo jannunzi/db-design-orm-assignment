@@ -30,7 +30,9 @@ const DoctorFormEditor = () => {
         <div>
             <h2>Doctor Editor</h2>
             <label>Id</label>
-            <input value={doctor.id}/><br/>
+            <input
+            readOnly={true}
+             value={doctor.id}/><br/>
             <label>First Name</label>
             <input onChange={(e) => setDoctor(doctor =>
             ({...doctor, firstname: e.target.value}))}
@@ -64,8 +66,8 @@ const DoctorFormEditor = () => {
             ({...doctor, hospital: e.target.value}))}
             value={doctor.hospital}/><br/>
             <button onClick={() => {history.goBack()}}>Cancel</button>
-            <button onClick={() => deleteDoctor(doctorId)}>Delete</button>
-            <button onClick={() => updateDoctor(doctorId, doctor)}>Save</button>
+            <button onClick={() => deleteDoctor(id)}>Delete</button>
+            <button onClick={() => updateDoctor(id, doctor)}>Save</button>
             <button onClick={()=> createDoctor(doctor)}>Create</button>
         </div>
     )

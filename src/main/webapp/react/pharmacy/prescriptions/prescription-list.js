@@ -8,12 +8,12 @@ const {Link, useParams, useHistory} = window.ReactRouterDOM;
 const PrescriptionList = () => {
     const [prescriptions, setPrescriptions] = useState([])
     const [newPrescription, setNewPrescription] = useState({})
-    const {patientId} = useParams()
+    const {id} = useParams()
     useEffect(() => {
-        findPrescriptionsForPatient(patientId)
+        findPrescriptionsForPatient(id)
     }, [])
     const createPrescriptionForPatient = (prescription) =>
-        prescriptionService.createPrescriptionForPatient(patientId, prescription)
+        prescriptionService.createPrescriptionForPatient(id, prescription)
             .then(prescription => {
                 setNewPrescription({diagnosis:''})
                 setPrescriptions(prescriptions => ([...prescriptions, prescription]))
@@ -21,8 +21,8 @@ const PrescriptionList = () => {
     const updatePrescription = (id, newPrescription) =>
         prescriptionService.updatePrescription(id, newPrescription)
             .then(prescription => setPrescriptions(prescriptions => (prescriptions.map(prescription => prescription.id === id ? newPrescription : prescription))))
-    const findPrescriptionsForPatient = (patientId) =>
-        prescriptionService.findPrescriptionsForPatient(patientId)
+    const findPrescriptionsForPatient = (id) =>
+        prescriptionService.findPrescriptionsForPatient(id)
             .then(prescriptions => setPrescriptions(prescriptions))
     const deletePrescription = (id) =>
         prescriptionService.deletePrescription(id)
@@ -83,7 +83,7 @@ const PrescriptionList = () => {
             {
                 prescriptions.map(prescription =>
                     <li key={prescription.id} className="list-group-item">
-                        <PrescriptionEditorInline key={prescription._id}
+                        <PrescriptionEditorInline key={prescription.id}
                                              updatePrescription={updatePrescription}
                                              deletePrescription={deletePrescription}
                                              prescription={prescription}/>

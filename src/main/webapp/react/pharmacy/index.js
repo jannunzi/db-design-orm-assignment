@@ -20,19 +20,19 @@ const App = () => {
                 <Route path="/doctors/:id" exact={true}>
                     <DoctorFormEditor/>
                 </Route>
-                <Route path={["/patients/", "/"]} exact={true}>
+                <Route path="/doctors/:id/patients" exact={true}>
                                     <PatientList/>
                 </Route>
                 <Route path ="/patients/:id" exact={true}>
                     <PatientFormEditor/>
                  </Route>
-                <Route path={["/prescriptions/", "/"]} exact={true}>
+                <Route path="/patients/:id/prescriptions" exact={true}>
                     <PrescriptionList/>
                 </Route>
                 <Route path="/prescriptions/:id" exact={true}>
                     <PrescriptionEditorForm/>
                 </Route>
-                <Route path="/symptoms/" exact={true}>
+                <Route path="/prescriptions/:id/symptoms" exact={true}>
                     <SymptomList/>
                 </Route>
                 <Route path="/symptoms/:symptomId" exact={true}>

@@ -20,22 +20,22 @@ public class PrescriptionOrmDao {
     PatientRepository patientRepository;
 
     @PostMapping("/api/prescriptions")
-    public Prescription createPrescription(@RequestBody Prescription script) {
-        return prescriptionRepository.save(script);
+    public Prescription createPrescription(@RequestBody Prescription prescription) {
+        return prescriptionRepository.save(prescription);
     }
 
-    @PostMapping("/api/patients/{patientId}/prescriptions")
-    public Prescription createPrescriptionForPatient(@PathVariable("patientId") Integer pid,
-                                                     @RequestBody Prescription script) {
-        script = prescriptionRepository.save(script);
-        Patient patient = patientRepository.findById(pid).get();
-        script.setPatient(patient);
-        return prescriptionRepository.save(script);
+    @PostMapping("/api/patients/{id}/prescriptions")
+    public Prescription createPrescriptionForPatient(@PathVariable("id") Integer id,
+                                                     @RequestBody Prescription prescription) {
+        prescription = prescriptionRepository.save(prescription);
+        Patient patient = patientRepository.findById(id).get();
+        prescription.setPatient(patient);
+        return prescriptionRepository.save(prescription);
     }
 
-    @GetMapping("/api/patients/{pid}/prescriptions")
+    @GetMapping("/api/patients/{id}/prescriptions")
     public List<Prescription> findPrescriptionsForPatient(
-            @PathVariable("pid") Integer patientId) {
+            @PathVariable("id") Integer patientId) {
         Patient patient = patientRepository.findById(patientId).get();
         return patient.getPrescriptions();
     }
@@ -45,39 +45,39 @@ public class PrescriptionOrmDao {
         return (List<Prescription>) prescriptionRepository.findAll();
     }
     
-    @GetMapping("/api/prescriptions/{scriptId}")
+    @GetMapping("/api/prescriptions/{id}")
     public Prescription findPrescriptionsById(
-            @PathVariable("scriptId") Integer id) {
+            @PathVariable("id") Integer id) {
         return prescriptionRepository.findById(id).get();
     }
 
 
-    @PutMapping("/api/update/prescriptions/{scriptId}/{newDose}")
+    @PutMapping("/api/update/prescriptions/{id}/{newDose}")
     public Prescription updatePrescriptionsDose(
-            @PathVariable("scriptId") Integer id,
+            @PathVariable("id") Integer id,
             @PathVariable("newDose") Integer newDose) {
-        Prescription script = this.findPrescriptionsById(id);
-        script.setDosage(newDose);
-        return prescriptionRepository.save(script);
+        Prescription prescription = this.findPrescriptionsById(id);
+        prescription.setDosage(newDose);
+        return prescriptionRepository.save(prescription);
     }
 
-    @PutMapping("/api/prescriptions/{scriptId}")
+    @PutMapping("/api/prescriptions/{id}")
     public Prescription updatePrescriptions(
-            @PathVariable("scriptId") Integer id,
-            @RequestBody() Prescription newScript) {
-        Prescription script = this.findPrescriptionsById(id);
-        script.setPatient(newScript.getPatient());
+            @PathVariable("id") Integer id,
+            @RequestBody() Prescription newPrescription) {
+        Prescription prescription = this.findPrescriptionsById(id);
+        prescription.setPatient(newPrescription.getPatient());
 
-        script.setMedication(newScript.getMedication());
-        script.setDiagnosis(newScript.getDiagnosis());
-        script.setDosage(newScript.getDosage());
-        script.setSymptoms(newScript.getSymptoms());
-        return prescriptionRepository.save(script);
+        prescription.setMedication(newPrescription.getMedication());
+        prescription.setDiagnosis(newPrescription.getDiagnosis());
+        prescription.setDosage(newPrescription.getDosage());
+        prescription.setSymptoms(newPrescription.getSymptoms());
+        return prescriptionRepository.save(prescription);
     }
 
-    @DeleteMapping("/api/prescriptions/{scriptId}")
+    @DeleteMapping("/api/prescriptions/{id}")
     public void deletePrescription(
-            @PathVariable("scriptId") Integer id) {
+            @PathVariable("id") Integer id) {
         prescriptionRepository.deleteById(id);
     }
 
