@@ -13,14 +13,14 @@
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
 
-<script src="users/user-service.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
-<script src="users/inline-user-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
-<script src="users/user-form-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
-<script src="users/user-list.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="doctors/doctor-service.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="doctors/inline-doctor-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="doctors/doctor-form-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="doctors/doctor-list.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 
 <script src="index.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script type="text/jsx" data-type="module" data-plugins="transform-modules-umd">
-    import App from "index";
+    import App from "./index";
     ReactDOM.render(
         React.createElement(App),
         document.getElementById('root')

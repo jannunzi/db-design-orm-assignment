@@ -4,7 +4,7 @@ import courseService from "./course-service"
 const COURSE_URL = "http://localhost:8080/api/courses"
 const { useState, useEffect } = React;
 
-const CourseList = () => {
+const CourseList extends React.component = () => {
     const [courses, setCourses] = useState([])
     const [newCourse, setNewCourse] = useState({})
     useEffect(() => {
