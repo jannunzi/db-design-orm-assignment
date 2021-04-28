@@ -23,7 +23,7 @@ const App = () => {
                 <Route path={["/patients/", "/"]} exact={true}>
                                     <PatientList/>
                 </Route>
-                <Route path ="/patients/:patientId" exact={true}>
+                <Route path ="/patients/:id" exact={true}>
                     <PatientFormEditor/>
                  </Route>
                 <Route path={["/prescriptions/", "/"]} exact={true}>

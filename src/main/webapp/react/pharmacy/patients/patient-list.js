@@ -8,12 +8,12 @@ const {Link, useParams, useHistory} = window.ReactRouterDOM;
 const PatientList = () => {
     const [patients, setPatients] = useState([])
     const [newPatient, setNewPatient] = useState({})
-    const {doctorId} = useParams()
+    const {id} = useParams()
     useEffect(() => {
-    findPatientsForDoctor(doctorId)
+    findPatientsForDoctor(id)
     }, [])
     const createPatientForDoctor = (patient) =>
-        patientService.createPatientForDoctor(doctorId, patient)
+        patientService.createPatientForDoctor(id, patient)
             .then(patient => {
                 setNewPatient({firstname:''})
                 setPatients(patients => ([...patients, patient]))
@@ -21,8 +21,8 @@ const PatientList = () => {
     const updatePatient = (id, newPatient) =>
         patientService.updatePatient(id, newPatient)
             .then(patient => setPatients(patients => (patients.map(patient => patient.id === id ? newPatient : patient))))
-    const findPatientsForDoctor = (doctorId) =>
-        patientService.findPatientsForDoctor(doctorId)
+    const findPatientsForDoctor = (id) =>
+        patientService.findPatientsForDoctor(id)
             .then(patients => setPatients(patients))
     const deletePatient = (id) =>
         patientService.deletePatient(id)
