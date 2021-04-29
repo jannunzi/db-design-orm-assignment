@@ -34,8 +34,7 @@ const PrescriptionEditorForm = () => {
             <select
                 className="form-control margin-bottom-10px"
                 value={prescription.medication_name}
-                onChange={(e)=>setPrescription(prescription => ({...prescription, medication_name: e.target
-                .value}))}>
+                onChange={(e)=>setPrescription(prescription => ({...prescription, medication_name: e.target.value}))}>
                 <option>Adderall</option>
                 <option>Allegra</option>
                 <option>Ativan</option>
@@ -63,8 +62,7 @@ const PrescriptionEditorForm = () => {
                 type="number"
                 className="form-control margin-bottom-10px"
                 value={prescription.dosage}
-                onChange={(e)=>setPrescription(prescription => ({...prescription, dosage: parseInt(e
-                .target.value)}))}/>
+                onChange={(e)=>setPrescription(prescription => ({...prescription, dosage: parseInt(e.target.value)}))}/>
 
             <br/>
             <button

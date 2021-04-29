@@ -20,8 +20,7 @@ const SymptomEditorInline = ({symptom, deleteSymptom, updateSymptom}) => {
                         <select
                             className="form-control"
                             value={sectionCopy.medication_name}
-                            onChange={(e)=>setSectionCopy(sectionCopy => ({...sectionCopy,
-                            medication_name: e.target.value}))}>
+                            onChange={(e)=>setSectionCopy(sectionCopy => ({...sectionCopy, medication_name: e.target.value}))}>
                             <option>Adderall</option>
                             <option>Allegra</option>
                             <option>Ativan</option>
@@ -63,8 +62,7 @@ const SymptomEditorInline = ({symptom, deleteSymptom, updateSymptom}) => {
                             type="number"
                             className="form-control"
                             value={symptomCopy.lastUsed}
-                            onChange={(e)=>setSymptomCopy(symptomCopy => ({...symptomCopy, Dosage:
-                            parseInt(e.target.value)}))}/>
+                            onChange={(e)=>setSymptomCopy(symptomCopy => ({...symptomCopy, Dosage: parseInt(e.target.value)}))}/>
                     </div>
 
                     <div className="col-2">

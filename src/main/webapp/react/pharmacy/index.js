@@ -35,7 +35,7 @@ const App = () => {
                 <Route path="/prescriptions/:id/symptoms" exact={true}>
                     <SymptomList/>
                 </Route>
-                <Route path="/symptoms/:symptomId" exact={true}>
+                <Route path="/symptoms/:id" exact={true}>
                     <SymptomEditorForm/>
                 </Route>
 

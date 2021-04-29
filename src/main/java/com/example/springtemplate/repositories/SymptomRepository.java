@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface SymptomRepository
         extends CrudRepository<Symptom, Integer> {
-//  @Query(value = "SELECT * FROM symptoms",
-//          nativeQuery = true)
-//  List<Prescription> findAllSymptoms();
-//  @Query(value = "SELECT * FROM symptoms WHERE prescription=:userId",
-//          nativeQuery = true)
-//  Prescription findSymptomsByPrescription(@Param("userId") Integer id);
+  @Query(value = "SELECT * FROM symptoms",
+          nativeQuery = true)
+  List<Prescription> findAllSymptoms();
+  @Query(value = "SELECT * FROM symptoms WHERE prescription=:id",
+          nativeQuery = true)
+  Prescription findSymptomsByPrescription(@Param("id") Integer id);
 }

@@ -24,19 +24,19 @@ public class SymptomOrmDao {
         return symptomRepository.save(symptom);
     }
 
-    @PostMapping("/api/prescriptions/{scriptId}/symptoms")
+    @PostMapping("/api/prescriptions/{id}/symptoms")
     public Symptom createSymptomForPrescription(
-            @PathVariable("scriptId") Integer pid,
+            @PathVariable("id") Integer id,
             @RequestBody Symptom symptom) {
         symptom = symptomRepository.save(symptom);
-        Prescription script = prescriptionRepository.findById(pid).get();
+        Prescription script = prescriptionRepository.findById(id).get();
         symptom.setPrescription(script);
         return symptomRepository.save(symptom);
     }
 
-    @GetMapping("/api/prescriptions/{pid}/symptoms")
-    public List<Symptom> findSymptomForPrescription(
-            @PathVariable("pid") Integer courseId) {
+    @GetMapping("/api/prescriptions/{id}/symptoms")
+    public List<Symptom> findSymptomsForPrescription(
+            @PathVariable("id") Integer courseId) {
         Prescription script = prescriptionRepository.findById(courseId).get();
         return script.getSymptoms();
     }
@@ -46,15 +46,15 @@ public class SymptomOrmDao {
         return (List<Symptom>) symptomRepository.findAll();
     }
     
-    @GetMapping("/api/symptoms/{symptomId}")
+    @GetMapping("/api/symptoms/{id}")
     public Symptom findSymptomById(
-            @PathVariable("symptomId") Integer id) {
+            @PathVariable("id") Integer id) {
         return symptomRepository.findById(id).get();
     }
 
-    @PutMapping("/api/symptoms/{symptomId}")
+    @PutMapping("/api/symptoms/{id}")
     public Symptom updateSymptom(
-            @PathVariable("sectionId") Integer id,
+            @PathVariable("id") Integer id,
             @RequestBody() Symptom newSymptom) {
         Symptom symptom = this.findSymptomById(id);
         symptom.setBenefits(newSymptom.getBenefits());
@@ -64,9 +64,9 @@ public class SymptomOrmDao {
         return symptomRepository.save(symptom);
     }
 
-    @DeleteMapping("/api/symptoms/{symptomId}")
-    public void deleteSection(
-            @PathVariable("symptomId") Integer id) {
+    @DeleteMapping("/api/symptoms/{id}")
+    public void deleteSymptom(
+            @PathVariable("id") Integer id) {
         symptomRepository.deleteById(id);
     }
 }

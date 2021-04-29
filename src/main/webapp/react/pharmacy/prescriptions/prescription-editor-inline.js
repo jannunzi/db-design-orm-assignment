@@ -13,8 +13,7 @@ const PrescriptionEditorInline = ({prescription, deletePrescription, updatePresc
                         <select
                             className="form-control"
                             value={sectionCopy.medication_name}
-                            onChange={(e)=>setSectionCopy(sectionCopy => ({...sectionCopy,
-                            medication_name: e.target.value}))}>
+                            onChange={(e)=>setSectionCopy(sectionCopy => ({...sectionCopy, medication_name: e.target.value}))}>
                             <option>Adderall</option>
                             <option>Allegra</option>
                              <option>Ativan</option>
@@ -77,6 +76,11 @@ const PrescriptionEditorInline = ({prescription, deletePrescription, updatePresc
                     <div className="col">
                         <Link to={`/prescriptions/${prescriptionCopy.id}`}>
                             {prescriptionCopy.dosage}
+                        </Link>
+                    </div>
+                    <div className="col-1">
+                        <Link to={`/prescriptions/${prescriptionCopy.id}/symptoms`}>
+                            Prescriptions
                         </Link>
                     </div>
 

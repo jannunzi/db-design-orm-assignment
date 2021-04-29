@@ -1,4 +1,4 @@
-import {PrescriptionEditorInline} from "./prescription-editor-inline";
+import PrescriptionEditorInline from "./prescription-editor-inline";
 import prescriptionService, {createPrescriptionForPatient} from "./prescription-service"
 
 const PRESCRIPTION_URL = "http://localhost:8080/api/prescriptions"
@@ -38,28 +38,30 @@ const PrescriptionList = () => {
             <ul className="list-group">
                 <li className="list-group-item">
                     <div className="row">
-                        <div className="col">
-                            <select
-                                   className="form-control"
-                                   value={newPrescription.medication_name}
-                                   onChange={(e) => setNewPrescription(newPrescription => ({...newPrescription, medication_name: e.target.value}))}/>
-                                <option>Adderall</option>
-                                <option>Allegra</option>
-                                <option>Ativan</option>
-                                <option>Celexa</option>
-                                <option>Dronabinol</option>
-                                <option>Effexor</option>
-                                <option>Hydrocodeine</option>
-                                <option>Levora</option>
-                                <option>Lexapro</option>
-                                <option>Ocella</option>
-                                <option>Prozac</option>
-                                <option>Trazadone</option>
-                                <option>Velivet</option>
-                                <option>Welbutrin</option>
-                                <option>Zoloft</option>
-                                <option>Zyrtec</option>
-                        </div>
+                <div className="col">
+            <select placeholder="Prescription Medication"
+                   title="Please enter a medication for the prescription"
+                   className="form-control"
+                   value={newPrescription.medication_name}
+                   onChange={(e) => setNewPrescription(newPrescription => ({...newPrescription, medication_name: e.target.value}))}>
+                <option>Adderall</option>
+                <option>Allegra</option>
+                <option>Ativan</option>
+                <option>Celexa</option>
+                <option>Dronabinol</option>
+                <option>Effexor</option>
+                <option>Hydrocodeine</option>
+                <option>Levora</option>
+                <option>Lexapro</option>
+                <option>Ocella</option>
+                <option>Prozac</option>
+                <option>Trazadone</option>
+                <option>Velivet</option>
+                <option>Welbutrin</option>
+                <option>Zoloft</option>
+                <option>Zyrtec</option>
+                </select>
+            </div>
                         <div className="col">
                             <input placeholder="Prescription Diagnosis"
                                 title="Please enter the diagnosis for this prescription"

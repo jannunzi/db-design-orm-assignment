@@ -1,4 +1,4 @@
-import {SymptomEditorInline} from "./symptom-editor-inline";
+import SymptomEditorInline from "./symptom-editor-inline";
 import symptomService, {createSymptomForPrescription} from "./symptom-service"
 
 const PRESCRIPTION_URL = "http://localhost:8080/api/symptoms"
@@ -8,12 +8,12 @@ const {Link, useParams, useHistory} = window.ReactRouterDOM;
 const SymptomList = () => {
     const [symptoms, setSymptoms] = useState([])
     const [newSymptom, setNewSymptom] = useState({})
-    const {prescriptionId} = useParams()
+    const {id} = useParams()
     useEffect(() => {
-        findSymptomsForPrescription(prescriptionId)
+        findSymptomsForPrescription(id)
     }, [])
     const createSymptomForPrescription = (symptom) =>
-        symptomService.createSymptomForPrescription(prescriptionId, symptom)
+        symptomService.createSymptomForPrescription(id, symptom)
             .then(symptom => {
                 setNewSymptom({title:''})
                 setSymptoms(symptoms => ([...symptoms, symptom]))
@@ -21,8 +21,8 @@ const SymptomList = () => {
     const updateSymptom = (id, newSymptom) =>
         symptomService.updateSymptom(id, newSymptom)
             .then(symptom => setSymptoms(symptoms => (symptoms.map(symptom => symptom.id === id ? newSymptom : symptom))))
-    const findSymptomsForPrescription = (prescriptionId) =>
-        symptomService.findSymptomsForPrescription(prescriptionId)
+    const findSymptomsForPrescription = (id) =>
+        symptomService.findSymptomsForPrescription(id)
             .then(symptoms => setSymptoms(symptoms))
     const deleteSymptom = (id) =>
         symptomService.deleteSymptom(id)
@@ -50,7 +50,7 @@ const SymptomList = () => {
                                    title="Please enter a medication for the symptom"
                                    className="form-control"
                                    value={newSymptom.medication_name}
-                                   onChange={(e) => setNewSymptom(newSymptom => ({...newSymptom, medication_name: e.target.value}))}/>
+                                   onChange={(e) => setNewSymptom(newSymptom => ({...newSymptom, medication_name: e.target.value}))}>
                                 <option>Adderall</option>
                                 <option>Allegra</option>
                                 <option>Ativan</option>
@@ -67,6 +67,7 @@ const SymptomList = () => {
                                 <option>Welbutrin</option>
                                 <option>Zoloft</option>
                                 <option>Zyrtec</option>
+                                </select>
                         </div>
                         <div className="col">
                             <input placeholder="Symptom Used For"
@@ -87,8 +88,7 @@ const SymptomList = () => {
                                 title="Please enter the side effects for this symptom"
                                 className="form-control"
                                 value={newSymptom.sideEffects}
-                                onChange={(e)=>SetNewSymptom(newSymptom => ({...newSymptom,
-                                sideEffects: e.target.value}))}/>
+                                onChange={(e)=>SetNewSymptom(newSymptom => ({...newSymptom, sideEffects: e.target.value}))}/>
                         </div>
                         <div className="col">
                             <input placeholder="Symptom Last Used"
@@ -106,7 +106,7 @@ const SymptomList = () => {
             {
                 symptoms.map(symptom =>
                     <li key={symptom.id} className="list-group-item">
-                        <SymptomEditorInline key={symptom._id}
+                        <SymptomEditorInline key={symptom.id}
                                              updateSymptom={updateSymptom}
                                              deleteSymptom={deleteSymptom}
                                              symptom={symptom}/>
