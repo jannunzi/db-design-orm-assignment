@@ -1,14 +1,15 @@
-import PatientService from "./patient-service"
+import patientService from "./patient-service"
 
 const {useState, useEffect} = React
 const {useParams, useHistory} = window.ReactRouterDOM;
 
 const PatientEditorForm = () => {
     const [patient, setPatient] = useState({})
-    const {patientId} = useParams()
+    const {id} = useParams()
     const history = useHistory()
-    useEffect(() => {
-        findPatientById(patientId)
+    useEffect(() => {if(id!=="new"){
+        findPatientById(id)
+        }
     }, []);
     const findPatientById = (id) =>
         patientService.findPatientById(id)
@@ -33,8 +34,8 @@ const PatientEditorForm = () => {
             <label>Firstname</label>
             <input
                 className="form-control margin-bottom-10px"
-                onChange={(e) => setPatient(patient => ({...patient, firstname: e.target.value}))}
                 value={patient.firstname}/>
+                onChange={(e) => setPatient(patient => ({...patient, firstname: e.target.value}))}
             <label>Lastname</label>
             <input
                 className="form-control margin-bottom-10px"
@@ -44,20 +45,13 @@ const PatientEditorForm = () => {
             <input
                 className="form-control margin-bottom-10px"
                 value={patient.username}
-                onChange={(e)=>setPatient(patient => ({...patient, username: e.target.value}))}>
-
-            </input>
+                onChange={(e)=>setPatient(patient => ({...patient, username: e.target.value}))}/>
             <label>Password</label>
             <input
                 className="form-control margin-bottom-10px"
                 value={patient.password}
                 onChange={(e)=>setPatient(patient => ({...patient, password: e.target.value}))}/>
-            <label>Password</label>
-            <input
-                className="form-control margin-bottom-10px"
-                value={patient.email}
-                onChange={(e)=>setPatient(patient => ({...patient, email: e.target.value}))}/>
-<label>DOB</label>
+            <label>DOB</label>
             <input
                 className="form-control margin-bottom-10px"
                 value={patient.DOB}

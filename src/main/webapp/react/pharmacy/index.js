@@ -3,7 +3,7 @@ import DoctorFormEditor from "./doctors/doctor-form-editor";
 import PatientList from "./patients/patient-list";
 import PatientFormEditor from "./patients/patient-form-editor";
 import PrescriptionList from "./prescriptions/prescription-list";
-import SymptomList from "./symptoms/symptoms-list";
+import SymptomsList from "./symptoms/symptoms-list";
 import PrescriptionEditorForm from "./prescriptions/prescription-editor-form";
 import SymptomEditorForm from "./symptoms/symptoms-editor-form";
 
@@ -33,7 +33,7 @@ const App = () => {
                     <PrescriptionEditorForm/>
                 </Route>
                 <Route path="/prescriptions/:id/symptoms" exact={true}>
-                    <SymptomList/>
+                    <SymptomsList/>
                 </Route>
                 <Route path="/symptoms/:id" exact={true}>
                     <SymptomEditorForm/>

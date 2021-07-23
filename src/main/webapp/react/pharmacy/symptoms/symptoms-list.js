@@ -1,11 +1,11 @@
 import SymptomEditorInline from "./symptom-editor-inline";
 import symptomService, {createSymptomForPrescription} from "./symptom-service"
 
-const PRESCRIPTION_URL = "http://localhost:8080/api/symptoms"
+const SYMPTOMS_URL = "http://localhost:8080/api/symptoms"
 const { useState, useEffect } = React;
 const {Link, useParams, useHistory} = window.ReactRouterDOM;
 
-const SymptomList = () => {
+const SymptomsList = () => {
     const [symptoms, setSymptoms] = useState([])
     const [newSymptom, setNewSymptom] = useState({})
     const {id} = useParams()
@@ -117,4 +117,4 @@ const SymptomList = () => {
     )
 }
 
-export default SymptomList;
+export default SymptomsList;

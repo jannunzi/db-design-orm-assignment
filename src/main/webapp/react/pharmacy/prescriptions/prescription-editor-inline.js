@@ -12,8 +12,8 @@ const PrescriptionEditorInline = ({prescription, deletePrescription, updatePresc
                     <div className="col">
                         <select
                             className="form-control"
-                            value={sectionCopy.medication_name}
-                            onChange={(e)=>setSectionCopy(sectionCopy => ({...sectionCopy, medication_name: e.target.value}))}>
+                            value={prescriptionCopy.medication_name}
+                            onChange={(e)=>setPrescriptionCopy(prescriptionCopy => ({...prescriptionCopy, medication_name: e.target.value}))}>
                             <option>Adderall</option>
                             <option>Allegra</option>
                              <option>Ativan</option>
@@ -43,10 +43,13 @@ const PrescriptionEditorInline = ({prescription, deletePrescription, updatePresc
                             type="number"
                             className="form-control"
                             value={prescriptionCopy.dosage}
-                            onChange={(e)=>setPrescriptionCopy(prescriptionCopy => ({...prescriptionCopy, Dosage:
-                            parseInt(e.target.value)}))}/>
+                            onChange={(e)=>setPrescriptionCopy(prescriptionCopy => ({...prescriptionCopy, Dosage: parseInt(e.target.value)}))}/>
                     </div>
-
+                    <div className="col-1">
+                        <Link to={`/prescriptions/${prescriptionCopy.id}/symptoms`}>
+                            Symptoms
+                        </Link>
+                    </div>
                     <div className="col-2">
                         <i className="fas fa-2x fa-check float-right margin-left-10px"
                            onClick={() => {
@@ -80,7 +83,7 @@ const PrescriptionEditorInline = ({prescription, deletePrescription, updatePresc
                     </div>
                     <div className="col-1">
                         <Link to={`/prescriptions/${prescriptionCopy.id}/symptoms`}>
-                            Prescriptions
+                            Symptoms
                         </Link>
                     </div>
 

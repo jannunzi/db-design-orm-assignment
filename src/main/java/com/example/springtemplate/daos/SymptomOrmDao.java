@@ -36,9 +36,9 @@ public class SymptomOrmDao {
 
     @GetMapping("/api/prescriptions/{id}/symptoms")
     public List<Symptom> findSymptomsForPrescription(
-            @PathVariable("id") Integer courseId) {
-        Prescription script = prescriptionRepository.findById(courseId).get();
-        return script.getSymptoms();
+            @PathVariable("id") Integer id) {
+        Prescription prescription = prescriptionRepository.findById(id).get();
+        return prescription.getSymptoms();
     }
     
     @GetMapping("/api/symptoms")

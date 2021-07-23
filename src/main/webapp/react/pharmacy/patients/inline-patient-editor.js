@@ -23,26 +23,23 @@ const InlinePatientEditor = ({patient, deletePatient, updatePatient}) => {
                             e.target.value}))}/>
                     </div>
                     <div className="col">
-                        <select
+                        <input
                             className="form-control"
                             value={patientCopy.username}
-                            onChange={(e)=>setPatientCopy(patientCopy => ({...patientCopy, username:
-                             e.target.value}))}>
-                        </select>
+                            onChange={(e)=>setPatientCopy(patientCopy => ({...patientCopy, username: e.target.value}))}/>
+
                     </div>
                     <div className="col">
                         <input
                             className="form-control"
                             value={patientCopy.password}
-                            onChange={(e)=>setPatientCopy(patientCopy => ({...patientCopy, password:
-                             e.target.value}))}/>
+                            onChange={(e)=>setPatientCopy(patientCopy => ({...patientCopy, password: e.target.value}))}/>
                     </div>
                     <div className="col">
                         <input
                             className="form-control"
                             value={patientCopy.email}
-                            onChange={(e)=>setPatientCopy(patientCopy => ({...patientCopy, email:
-                             e.target.value}))}/>
+                            onChange={(e)=>setPatientCopy(patientCopy => ({...patientCopy, email: e.target.value}))}/>
                     </div>
                     <div className="col">
                         <input

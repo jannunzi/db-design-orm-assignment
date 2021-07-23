@@ -7,8 +7,9 @@ const PrescriptionEditorForm = () => {
     const [prescription, setPrescription] = useState({})
     const {id} = useParams()
     const history = useHistory()
-    useEffect(() => {
+    useEffect(() => {if(id!=="new"){
         findPrescriptionById(id)
+        }
     }, []);
     const findPrescriptionById = (id) =>
         prescriptionService.findPrescriptionById(id)

@@ -1,4 +1,4 @@
-import userService from "./doctor-service"
+import doctorService from "./doctor-service"
 
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM
@@ -41,10 +41,10 @@ const DoctorFormEditor = () => {
             <input onChange={(e) => setDoctor(doctor =>
             ({...doctor, lastname: e.target.value}))}
             value={doctor.lastname}/><br/>
-            <label>Username</label>
+            <label>doctorname</label>
             <input onChange={(e) => setDoctor(doctor =>
-            ({...doctor, username: e.target.value}))}
-            value={doctor.username}/><br/>
+            ({...doctor, doctorname: e.target.value}))}
+            value={doctor.doctorname}/><br/>
             <label>Password</label>
             <input onChange={(e) => setDoctor(doctor =>
             ({...doctor, password: e.target.value}))}

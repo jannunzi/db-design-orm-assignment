@@ -38,7 +38,7 @@ const PrescriptionList = () => {
             <ul className="list-group">
                 <li className="list-group-item">
                     <div className="row">
-                <div className="col">
+                    <div className="col">
             <select placeholder="Prescription Medication"
                    title="Please enter a medication for the prescription"
                    className="form-control"

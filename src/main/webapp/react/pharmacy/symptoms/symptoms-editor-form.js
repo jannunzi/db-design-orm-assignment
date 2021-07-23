@@ -8,7 +8,9 @@ const SymptomEditorForm = () => {
     const {id} = useParams()
     const history = useHistory()
     useEffect(() => {
+    if(id!=="new"){
         findSymptomById(id)
+        }
     }, []);
     const findSymptomById = (id) =>
         symptomService.findSymptomById(id)
@@ -73,8 +75,7 @@ const SymptomEditorForm = () => {
                         <input
                             className="form-control margin-bottom-10px"
                             value={symptom.sideEffects}
-                            onChange={(e)=>setSymptom(symptom => ({...symptom, sideEffects: e.target
-                            .value}))}/>
+                            onChange={(e)=>setSymptom(symptom => ({...symptom, sideEffects: e.target.value}))}/>
             <label>Last Used</label>
             <input type="number"
                 className="form-control margin-bottom-10px"

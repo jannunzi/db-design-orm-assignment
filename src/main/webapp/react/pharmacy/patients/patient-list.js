@@ -43,53 +43,49 @@ const PatientList = () => {
                                    title="Please enter a name for the patient"
                                    className="form-control"
                                    value={newPatient.title}
-                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient,
-                                   firstname: e.target.value}))}/>
+                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient, firstname: e.target.value}))}/>
                         </div>
                         <div className="col">
                        <input placeholder="Patient lastname"
                                          title="Please enter a lastname for the patient"
                                    className="form-control"
                                      value={newPatient.lastname}
-                                       onChange={(e) => setNewPatient(newPatient => ({...newPatient,
-                                        lastname: e.target.value}))}/>
+                                       onChange={(e) => setNewPatient(newPatient => ({...newPatient, lastname: e.target.value}))}/>
                           </div>
                             <div className="col">
                             <input placeholder="Patient username"
                                    title="Please enter a username for the patient"
                                    className="form-control"
                                    value={newPatient.username}
-                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient, name: e.target.value}))}/>
+                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient, username: e.target.value}))}/>
                         </div>
 <div className="col">
                             <input placeholder="Patient password"
                                    title="Please enter a password for the patient"
                                    className="form-control"
                                    value={newPatient.password}
-                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient, name: e.target.value}))}/>
+                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient, password: e.target.value}))}/>
                         </div>
                         <div className ="col">
                             <input placeholder="Patient email"
                                                         title="Please enter an email for the patient"
                                                         className="form-control"
                                                         value={newPatient.email}
-                                                        onChange={(e) => setNewPatient(newPatient => ({...newPatient, name: e.target.value}))}/>
+                                                        onChange={(e) => setNewPatient(newPatient => ({...newPatient, email: e.target.value}))}/>
                                              </div>
                         <div className="col">
                             <input placeholder="Year"
                                    title="Please enter a Year for the patient"
                                    className="form-control"
                                    value={newPatient.DOB}
-                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient,
-                                   DOB: e.target.value}))}/>
+                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient, DOB: e.target.value}))}/>
                         </div>
                         <div className="col">
                             <input placeholder="Patient Conditions"
                                    title="Please enter conditions for the patient"
                                    className="form-control"
                                    value={newPatient.conditions}
-                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient,
-                                   conditions: e.target.value}))}/>
+                                   onChange={(e) => setNewPatient(newPatient => ({...newPatient, conditions: e.target.value}))}/>
                         </div>
                         <div className="col-2">
                             <i className="fas float-right fa-plus fa-2x" onClick={() => createPatientForDoctor(newPatient)}></i>

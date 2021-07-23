@@ -15,5 +15,5 @@ public interface PrescriptionRepository
   List<Prescription> findAllPrescriptions();
   @Query(value = "SELECT * FROM prescriptions WHERE patient=:userId",
           nativeQuery = true)
-  Prescription findPrescriptionByPatient(@Param("userId") Integer id);
+  List<Prescription> findPrescriptionByPatient(@Param("userId") Integer id);
 }
