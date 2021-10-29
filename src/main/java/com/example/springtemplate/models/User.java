@@ -1,12 +1,6 @@
 package com.example.springtemplate.models;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name="users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String firstName;
     private String lastName;
