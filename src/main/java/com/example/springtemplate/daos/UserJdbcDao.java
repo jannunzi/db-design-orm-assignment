@@ -17,7 +17,7 @@ public class UserJdbcDao {
     
     static Connection connection = null;
     static PreparedStatement statement = null;
-    String CREATE_USER = "INSERT INTO users VALUES (null, ?, ?, ?, ?, ?, null, null)";
+    String CREATE_USER = "INSERT INTO users VALUES (null, ?, ?, ?, ?, ?, null)";
     String FIND_ALL_USERS = "SELECT * FROM users";
     String FIND_USER_BY_ID = "SELECT * FROM users WHERE id=?";
     String DELETE_USER = "DELETE FROM users WHERE id=?";
