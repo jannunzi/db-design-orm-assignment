@@ -24,4 +24,9 @@ public class SongDao {
             @PathVariable("id") Integer id) {
         return repository.findById(id).get();
     }
+    @GetMapping("/api/songs/{id}/remove")
+    public void remove(
+            @PathVariable("id") Integer id) {
+        repository.deleteById(id);
+    }
 }

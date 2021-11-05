@@ -1,11 +1,15 @@
 import service from "./service"
 const { useState, useEffect } = React;
-const {Link, useParams} = window.ReactRouterDOM;
+const {Link, useParams, useHistory} = window.ReactRouterDOM;
 
 const EditorScreen = () => {
     const params = useParams();
     const id = params.id;
     const [record, setRecord] = useState({});
+    const history = useHistory();
+    const remove = () =>
+      service.remove("songs", id)
+        .then(() => history.goBack())
     const findById = () =>
       service.findById("songs", id)
         .then(record => setRecord(record));
@@ -21,7 +25,7 @@ const EditorScreen = () => {
                    className="form-control"/>
             <br/>
             <button className="btn btn-warning">Cancel</button>
-            <button className="btn btn-danger">Delete</button>
+            <button onClick={remove} className="btn btn-danger">Delete</button>
             <button className="btn btn-primary">Save</button>
             <button className="btn btn-success">Create</button>
         </div>
