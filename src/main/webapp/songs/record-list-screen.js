@@ -7,7 +7,7 @@ const RecordListScreen = () => {
   const [list, setList] = useState([])
 
   const findAll = () =>
-    service.findAll("songs")
+    service.findAllRecords("songs")
       .then(list => setList(list))
 
   useEffect(findAll, []);

@@ -7,13 +7,13 @@ const RecordEditorScreen = () => {
     const id = params.id;
     const [record, setRecord] = useState({});
     const history = useHistory();
-    const remove = () =>
-      service.remove("songs", id)
+    const removeRecord = () =>
+      service.removeRecord("songs", id)
         .then(() => history.goBack())
-    const findById = () =>
-      service.findById("songs", id)
+    const findRecordById = () =>
+      service.findRecordById("songs", id)
         .then(record => setRecord(record));
-    useEffect(findById, []);
+    useEffect(findRecordById, []);
     return (
         <div>
             <h2>Record Editor</h2>
@@ -25,7 +25,7 @@ const RecordEditorScreen = () => {
                    className="form-control"/>
             <br/>
             <button className="btn btn-warning">Cancel</button>
-            <button onClick={remove} className="btn btn-danger">Delete</button>
+            <button onClick={removeRecord} className="btn btn-danger">Delete</button>
             <button className="btn btn-primary">Save</button>
             <button className="btn btn-success">Create</button>
         </div>

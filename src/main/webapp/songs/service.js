@@ -1,15 +1,15 @@
 // TODO: declare URL where server listens for HTTP requests
 const URL = "http://localhost:8080/api";
 
-export const findAll = (table) =>
+export const findAllRecords = (table) =>
   fetch(`${URL}/${table}`)
     .then(response => response.json())
 
-export const findById = (table, id) =>
+export const findRecordById = (table, id) =>
   fetch(`${URL}/${table}/${id}`)
     .then(response => response.json())
 
-export const remove = (table, id) =>
+export const removeRecord = (table, id) =>
   fetch(`${URL}/${table}/${id}/remove`);
 
 // TODO: create a new user
@@ -20,5 +20,5 @@ export const update = (id, user) => {}
 
 // TODO: export all functions as the API to this service
 export default {
-  findAll, findById, remove, create, update
+  findAllRecords, findRecordById, removeRecord, create, update
 }
