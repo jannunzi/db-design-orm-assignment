@@ -1,32 +1,46 @@
-import service from "./service"
+import service from "./service";
 const { useState, useEffect } = React;
 const {Link} = window.ReactRouterDOM;
 
+const schema = {
+  table: {
+    name: 'songs',
+    label: 'Song'
+  },
+  fields: [
+    {name: 'id', label: 'Song ID'},
+    {name: 'title', label: 'Song Title'},
+  ]
+};
+
 const RecordListScreen = () => {
 
-  const [list, setList] = useState([])
+  const [records, setRecords] = useState([])
 
-  const findAll = () =>
-    service.findAllRecords("songs")
-      .then(list => setList(list))
+  const findAllRecords = () =>
+    service.findAllRecords(schema.table.name)
+      .then(records => setRecords(records))
 
-  useEffect(findAll, []);
+  useEffect(findAllRecords, []);
 
   return(
         <div>
-            <h2>Record List</h2>
+            <h2>{schema.table.label} List</h2>
             <button className="btn btn-primary">
-                Add Record
+                Add {schema.table.label}
             </button>
             <ul className="list-group">
 
               {
-                list.map(item =>
+                records.map(record =>
                   <li className="list-group-item"
-                      key={item.songId}>
-                    <Link to={`/edit/${item.songId}`}>
-                      {item.songId},
-                      {item.title}
+                      key={record.id}>
+                    <Link to={`/edit/${record.id}`}>
+                      {
+                        schema.fields.map(field =>
+                          <span>{record[field.name]}, </span>
+                        )
+                      }
                     </Link>
                   </li>)
               }
