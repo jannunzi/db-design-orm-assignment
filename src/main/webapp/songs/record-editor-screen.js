@@ -1,17 +1,7 @@
 import service from "./service"
+import {schema} from "./schema";
 const { useState, useEffect } = React;
 const {Link, useParams, useHistory} = window.ReactRouterDOM;
-
-const schema = {
-  table: {
-    name: 'songs',
-    label: 'Song'
-  },
-  fields: [
-    {name: 'id', label: 'Song ID'},
-    {name: 'title', label: 'Song Title'},
-  ]
-};
 
 const RecordEditorScreen = () => {
     const params = useParams();
@@ -45,6 +35,7 @@ const RecordEditorScreen = () => {
                 <div key={field.name}>
                   <label>{field.label}</label>
                   <input value={record[field.name]}
+                         readOnly={field.readonly}
                          onChange={(event) =>
                            updateLocalCopy(event, field)}
                          className="form-control"/>
@@ -53,10 +44,9 @@ const RecordEditorScreen = () => {
             }
 
             <br/>
-            <button className="btn btn-warning">Cancel</button>
+            <button onClick={() => history.goBack()} className="btn btn-warning">Cancel</button>
             <button onClick={removeRecord} className="btn btn-danger">Delete</button>
             <button onClick={saveRecord} className="btn btn-primary">Save</button>
-            <button className="btn btn-success">Create</button>
         </div>
     )
 }

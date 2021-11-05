@@ -1,17 +1,7 @@
 import service from "./service";
+import {schema} from "./schema";
 const { useState, useEffect } = React;
 const {Link} = window.ReactRouterDOM;
-
-const schema = {
-  table: {
-    name: 'songs',
-    label: 'Song'
-  },
-  fields: [
-    {name: 'id', label: 'Song ID'},
-    {name: 'title', label: 'Song Title'},
-  ]
-};
 
 const RecordListScreen = () => {
 
@@ -24,7 +14,7 @@ const RecordListScreen = () => {
   useEffect(findAllRecords, []);
 
   const createRecord = () =>
-    service.createRecord("songs")
+    service.createRecord(schema.table.name)
       .then(() => window.location.reload())
 
   return(
@@ -42,7 +32,7 @@ const RecordListScreen = () => {
                     <Link to={`/edit/${record.id}`}>
                       {
                         schema.fields.map(field =>
-                          <span>{record[field.name]}, </span>
+                          <span key={field.name}>{record[field.name]}, </span>
                         )
                       }
                     </Link>
