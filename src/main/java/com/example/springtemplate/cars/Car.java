@@ -1,12 +1,10 @@
-package com.example.springtemplate.models;
-
-import org.hibernate.dialect.Ingres9Dialect;
+package com.example.springtemplate.cars;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "songs")
-public class Song {
+@Table(name = "cars")
+public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

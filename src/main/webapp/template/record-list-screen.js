@@ -23,21 +23,21 @@ const RecordListScreen = () => {
             <button onClick={createRecord} className="btn btn-primary">
                 Add {schema.table.label}
             </button>
-            <ul className="list-group">
+            <div className="list-group">
 
               {
                 records.map(record =>
-                  <Link to={`/edit/${record.id}`} className="list-group-item" key={record.id}>
-                    {
-                      schema.fields.map(field =>
-                        <span key={field.name}>{record[field.name]}, </span>
-                      )
-                    }
-                  </Link>
+                    <Link to={`/edit/${record.id}`} className="list-group-item" key={record.id}>
+                      {
+                        schema.fields.map(field =>
+                          <span key={field.name}>{record[field.name]}, </span>
+                        )
+                      }
+                    </Link>
                 )
               }
 
-            </ul>
+            </div>
         </div>
     )
 }

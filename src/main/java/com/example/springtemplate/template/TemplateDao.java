@@ -1,7 +1,6 @@
-package com.example.springtemplate.daos;
+package com.example.springtemplate.template;
 
-import com.example.springtemplate.models.Song;
-import com.example.springtemplate.repositories.SongRepository;
+import com.example.springtemplate.songs.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,36 +8,36 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class SongDao {
+public class TemplateDao {
     @Autowired
-    SongRepository repository;
-    @GetMapping("/api/songs")
-    public List<Song> findAllRecords() {
-        return (List<Song>) repository.findAll();
+    TemplateRepository repository;
+    @GetMapping("/api/templates")
+    public List<Template> findAllRecords() {
+        return (List<Template>) repository.findAll();
     }
-    @GetMapping("/api/songs/{id}")
-    public Song findRecordById(
+    @GetMapping("/api/templates/{id}")
+    public Template findRecordById(
             @PathVariable("id") Integer id) {
         return repository.findById(id).get();
     }
-    @GetMapping("/api/songs/{id}/remove")
+    @GetMapping("/api/templates/{id}/remove")
     public void removeRecord(
             @PathVariable("id") Integer id) {
         repository.deleteById(id);
     }
-    @GetMapping("/api/songs/create")
+    @GetMapping("/api/templates/create")
     public void createRecord() {
-        Song newRecord = new Song();
+        Template newRecord = new Template();
 
-        newRecord.setTitle("New Song");
+        newRecord.setTitle("New Record");
 
         repository.save(newRecord);
     }
-    @PutMapping("/api/songs")
+    @PutMapping("/api/templates")
     public void updateRecord(
             @RequestBody Song newRecord
     ) {
-        Song oldRecord = repository.findById(newRecord.getId()).get();
+        Template oldRecord = repository.findById(newRecord.getId()).get();
 
         oldRecord.setTitle(newRecord.getTitle());
 
