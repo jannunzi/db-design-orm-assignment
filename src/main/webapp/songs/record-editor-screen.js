@@ -2,7 +2,7 @@ import service from "./service"
 const { useState, useEffect } = React;
 const {Link, useParams, useHistory} = window.ReactRouterDOM;
 
-const EditorScreen = () => {
+const RecordEditorScreen = () => {
     const params = useParams();
     const id = params.id;
     const [record, setRecord] = useState({});
@@ -16,7 +16,7 @@ const EditorScreen = () => {
     useEffect(findById, []);
     return (
         <div>
-            <h2>Editor</h2>
+            <h2>Record Editor</h2>
             <label>Id</label>
             <input value={record.songId}
                    className="form-control"/>
@@ -32,4 +32,4 @@ const EditorScreen = () => {
     )
 }
 
-export default EditorScreen
+export default RecordEditorScreen

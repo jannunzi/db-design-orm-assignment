@@ -2,7 +2,7 @@ import service from "./service"
 const { useState, useEffect } = React;
 const {Link} = window.ReactRouterDOM;
 
-const ListScreen = () => {
+const RecordListScreen = () => {
 
   const [list, setList] = useState([])
 
@@ -14,9 +14,9 @@ const ListScreen = () => {
 
   return(
         <div>
-            <h2>List</h2>
+            <h2>Record List</h2>
             <button className="btn btn-primary">
-                Add
+                Add Record
             </button>
             <ul className="list-group">
 
@@ -36,4 +36,4 @@ const ListScreen = () => {
     )
 }
 
-export default ListScreen;
+export default RecordListScreen;
