@@ -16,17 +16,24 @@ public class SongDao {
     @Autowired
     SongRepository repository;
     @GetMapping("/api/songs")
-    public List<Song> findAll() {
+    public List<Song> findAllRecords() {
         return (List<Song>) repository.findAll();
     }
     @GetMapping("/api/songs/{id}")
-    public Song findById(
+    public Song findRecordById(
             @PathVariable("id") Integer id) {
         return repository.findById(id).get();
     }
     @GetMapping("/api/songs/{id}/remove")
-    public void remove(
+    public void removeRecord(
             @PathVariable("id") Integer id) {
         repository.deleteById(id);
     }
+    @GetMapping("/api/songs/create")
+    public void createRecord() {
+        Song newSong = new Song();
+        newSong.setTitle("New Song");
+        repository.save(newSong);
+    }
+
 }

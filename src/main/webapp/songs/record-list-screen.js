@@ -23,10 +23,14 @@ const RecordListScreen = () => {
 
   useEffect(findAllRecords, []);
 
+  const createRecord = () =>
+    service.createRecord("songs")
+      .then(() => window.location.reload())
+
   return(
         <div>
             <h2>{schema.table.label} List</h2>
-            <button className="btn btn-primary">
+            <button onClick={createRecord} className="btn btn-primary">
                 Add {schema.table.label}
             </button>
             <ul className="list-group">

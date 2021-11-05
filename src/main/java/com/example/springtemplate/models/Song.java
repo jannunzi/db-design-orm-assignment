@@ -9,15 +9,15 @@ import javax.persistence.*;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer songId;
+    private Integer id;
     private String title;
 
-    public Integer getSongId() {
-        return songId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSongId(Integer songId) {
-        this.songId = songId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
