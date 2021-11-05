@@ -3,10 +3,7 @@ package com.example.springtemplate.daos;
 import com.example.springtemplate.models.Song;
 import com.example.springtemplate.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,9 +28,21 @@ public class SongDao {
     }
     @GetMapping("/api/songs/create")
     public void createRecord() {
-        Song newSong = new Song();
-        newSong.setTitle("New Song");
-        repository.save(newSong);
+        Song newRecord = new Song();
+
+        newRecord.setTitle("New Song");
+
+        repository.save(newRecord);
+    }
+    @PutMapping("/api/songs")
+    public void updateRecord(
+            @RequestBody Song newRecord
+    ) {
+        Song oldRecord = repository.findById(newRecord.getId()).get();
+
+        oldRecord.setTitle(newRecord.getTitle());
+
+        repository.save(oldRecord);
     }
 
 }

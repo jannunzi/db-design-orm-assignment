@@ -24,29 +24,38 @@ const RecordEditorScreen = () => {
     const findRecordById = () =>
       service.findRecordById(schema.table.name, id)
         .then(record => setRecord(record));
-    useEffect(findRecordById, []);
+    if(id !== 'new') {
+      useEffect(findRecordById, []);
+    }
+    const updateLocalCopy = (event, field) => {
+      const newValue = event.target.value;
+      setRecord({
+        ...record,
+        [field.name]: newValue});
+    }
+    const saveRecord = () =>
+      service.updateRecord(schema.table.name, record)
+        .then(() => history.goBack());
+
     return (
         <div>
             <h2>{schema.table.label} Editor</h2>
-            <label>Id</label>
-            <input value={record.id}
-                   className="form-control"/>
-            <label>Title</label>
-            <input value={record.title}
-                   className="form-control"/>
-          {
-            schema.fields.map(field => (
-              <>
-                <label>{field.label}</label>
-                <input value={record[field.name]} className="form-control"/>
-              </>
-            ))
-          }
+            {
+              schema.fields.map(field => (
+                <div key={field.name}>
+                  <label>{field.label}</label>
+                  <input value={record[field.name]}
+                         onChange={(event) =>
+                           updateLocalCopy(event, field)}
+                         className="form-control"/>
+                </div>
+              ))
+            }
 
             <br/>
             <button className="btn btn-warning">Cancel</button>
             <button onClick={removeRecord} className="btn btn-danger">Delete</button>
-            <button className="btn btn-primary">Save</button>
+            <button onClick={saveRecord} className="btn btn-primary">Save</button>
             <button className="btn btn-success">Create</button>
         </div>
     )

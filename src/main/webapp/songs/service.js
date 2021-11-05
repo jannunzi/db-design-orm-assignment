@@ -16,9 +16,16 @@ export const createRecord = (table) =>
   fetch(`${URL}/${table}/create`);
 
 // TODO: update a user by their ID
-export const update = (id, user) => {}
+export const updateRecord = (table, newRecord) =>
+  fetch(`${URL}/${table}`, {
+    method: 'PUT',
+    body: JSON.stringify(newRecord),
+    headers: {
+      'content-type': 'application/json'
+    }
+  });
 
 // TODO: export all functions as the API to this service
 export default {
-  findAllRecords, findRecordById, removeRecord, createRecord, update
+  findAllRecords, findRecordById, removeRecord, createRecord, updateRecord
 }
