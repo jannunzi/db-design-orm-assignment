@@ -1,6 +1,13 @@
 package com.example.springtemplate.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class User {
+    @Id
     private Integer id;
     private String firstName;
     private String lastName;

@@ -1,4 +1,4 @@
-package com.example.springtemplate.cars;
+package com.example.springtemplate.movies;
 
 import com.example.springtemplate.songs.Song;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,39 +8,40 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class CarDao {
+public class MovieDao {
     @Autowired
-    CarRepository repository;
-    @GetMapping("/api/cars")
-    public List<Car> findAllRecords() {
-        return (List<Car>) repository.findAll();
+    MovieRepository repository;
+    @GetMapping("/api/movies")
+    public List<Movie> findAllRecords() {
+        return (List<Movie>) repository.findAll();
     }
 
-    @GetMapping("/api/cars/{id}")
-    public Car findRecordById(
+    @GetMapping("/api/movies/{id}")
+    public Movie findRecordById(
             @PathVariable("id") Integer id) {
         return repository.findById(id).get();
     }
-    @GetMapping("/api/cars/{id}/remove")
+    @GetMapping("/api/movies/{id}/remove")
     public void removeRecord(
             @PathVariable("id") Integer id) {
         repository.deleteById(id);
     }
-    @GetMapping("/api/cars/create")
+    @GetMapping("/api/movies/create")
     public void createRecord() {
-        Car newRecord = new Car();
+        Movie newRecord = new Movie();
 
         newRecord.setTitle("New Record");
 
         repository.save(newRecord);
     }
-    @PutMapping("/api/cars")
+    @PutMapping("/api/movies")
     public void updateRecord(
-            @RequestBody Song newRecord
+            @RequestBody Movie newRecord
     ) {
-        Car oldRecord = repository.findById(newRecord.getId()).get();
+        Movie oldRecord = repository.findById(newRecord.getId()).get();
 
         oldRecord.setTitle(newRecord.getTitle());
+        oldRecord.setDirector(newRecord.getDirector());
 
         repository.save(oldRecord);
     }
