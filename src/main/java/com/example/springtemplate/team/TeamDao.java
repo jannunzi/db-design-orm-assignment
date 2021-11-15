@@ -1,8 +1,7 @@
 package com.example.springtemplate.team;
 
 import com.example.springtemplate.member.Member;
-import com.example.springtemplate.team.Team;
-import com.example.springtemplate.team.TeamRepository;
+import com.example.springtemplate.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,21 +11,25 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class TeamDao {
     @Autowired
-    TeamRepository repository;
+    TeamRepository teamRepository;
+
+    @Autowired
+    MemberRepository memberRepository;
+    
     @GetMapping("/api/teams")
     public List<Team> findAllRecords() {
-        return (List<Team>) repository.findAll();
+        return (List<Team>) teamRepository.findAll();
     }
 
     @GetMapping("/api/teams/{id}")
     public Team findRecordById(
             @PathVariable("id") Integer id) {
-        return repository.findById(id).get();
+        return teamRepository.findById(id).get();
     }
     @GetMapping("/api/teams/{id}/remove")
     public void removeRecord(
             @PathVariable("id") Integer id) {
-        repository.deleteById(id);
+        teamRepository.deleteById(id);
     }
     @GetMapping("/api/teams/create")
     public void createRecord() {
@@ -34,22 +37,37 @@ public class TeamDao {
 
         newRecord.setName("New Name");
 
-        repository.save(newRecord);
+        teamRepository.save(newRecord);
+    }
+    @GetMapping("/api/teams/{id}/members/create")
+    public void createOneToMany(
+            @PathVariable("id") Integer id
+    ) {
+        Team oneRecord = findRecordById(id);
+
+        Member newManyRecord = new Member();
+        newManyRecord.setName("New Member");
+        newManyRecord.setTeam(oneRecord);
+
+        oneRecord.getMembers().add(newManyRecord);
+        
+        teamRepository.save(oneRecord);
+        memberRepository.save(newManyRecord);
     }
     @GetMapping("/api/teams/{id}/members")
     public List<Member> findOneToManyRecords(
             @PathVariable("id") Integer id) {
-        return repository.findById(id).get().getMembers();
+        return teamRepository.findById(id).get().getMembers();
     }
     @PutMapping("/api/teams")
     public void updateRecord(
             @RequestBody Team newRecord
     ) {
-        Team oldRecord = repository.findById(newRecord.getId()).get();
+        Team oldRecord = teamRepository.findById(newRecord.getId()).get();
 
         oldRecord.setName(newRecord.getName());
 
-        repository.save(oldRecord);
+        teamRepository.save(oldRecord);
     }
 
 }
