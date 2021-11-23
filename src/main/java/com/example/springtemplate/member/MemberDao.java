@@ -1,7 +1,5 @@
 package com.example.springtemplate.member;
 
-import com.example.springtemplate.movies.Movie;
-import com.example.springtemplate.movies.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

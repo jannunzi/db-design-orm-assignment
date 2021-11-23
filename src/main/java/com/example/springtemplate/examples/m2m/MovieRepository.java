@@ -1,6 +1,5 @@
-package com.example.springtemplate.movies;
+package com.example.springtemplate.examples.m2m;
 
-import com.example.springtemplate.cars.Car;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MovieRepository

@@ -3,8 +3,8 @@ package com.example.springtemplate.movies;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "movies")
-public class Movie {
+@Table(name = "movies2")
+public class Movie2 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
