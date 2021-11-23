@@ -1,5 +1,7 @@
 package com.example.springtemplate.examples.m2m;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class Actor {
     private List<Movie> movies;
     
     @ManyToOne
+    @JsonIgnore
     private Movie movie;
 
     public Movie getMovie() {
